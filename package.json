@@ -1,0 +1,29 @@
+{
+  "name": "if-interested",
+  "version": "0.0.1",
+  "description": "Personal Blog",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/markstanden/if-interested.git"
+  },
+  "author": "Mark Standen",
+  "license": "ISC",
+  "dependencies": {
+    "next": "^9.5.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "immer": "^7.0.7",
+    "use-immer": "^0.4.1"
+  },
+  "devDependencies": {
+    "prettier": "^2.0.5",
+    "sass": "^1.26.10"
+  }
+}
