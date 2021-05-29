@@ -1,12 +1,14 @@
-import Header from '../components/Header.jsx'
-import Hero from '../components/Hero.jsx'
-import NavMenu from '../components/navMenu.jsx'
+import Header from '../components/Header'
+import Hero from '../components/Hero'
+import NavMenu from '../components/navMenu'
 
 function HomePage() {
   return (
     <>
-      <NavMenu />
+      <Header />
       <Hero />
+      <Footer />
+      <NavMenu />
     </>
   )
 }
