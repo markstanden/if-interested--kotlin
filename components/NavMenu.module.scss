@@ -1,0 +1,106 @@
+@import '../styles/theme';
+
+$navButton-position-top: 1rem;
+$navButton-position-right: 1.5rem;
+$navButton-height: 5rem;
+$navButton-width: 5rem;
+
+.navButtonContainer {
+  position: fixed;
+  top: $navButton-position-top;
+  right: $navButton-position-right;
+  background-color: transparent;
+  z-index: 103;
+  height: $navButton-height;
+  width: $navButton-width;
+  cursor: pointer;
+}
+.navButtonClip {
+  position: relative;
+  top: 0;
+  right: 0;
+
+  height: calc(#{$navButton-height} / 2);
+  width: $navButton-width;
+  z-index: 105;
+  overflow: hidden;
+}
+
+.navButton {
+  position: relative;
+  top: 0;
+  right: 0;
+  height: $navButton-height;
+  width: $navButton-width;
+  border-radius: 50%;
+  z-index: 105;
+  overflow: hidden;
+
+  &___Red {
+    position: relative;
+    top: 0;
+    right: 0;
+    transform: scale(1);
+    background-color: $bb-red;
+    z-index: 110;
+  }
+  &___Orange {
+    position: relative;
+    top: 0;
+    right: 0;
+    transform: scale(0.85);
+    background-color: $bb-orange;
+    z-index: 111;
+  }
+  &___Yellow {
+    position: relative;
+    top: 0;
+    right: 0;
+    transform: scale(0.8);
+    background-color: $bb-yellow;
+    z-index: 112;
+  }
+  &___Green {
+    position: relative;
+    top: 0;
+    right: 0;
+    transform: scale(0.77);
+    background-color: $bb-green;
+    z-index: 113;
+  }
+  &___Blue {
+    position: relative;
+    top: 0;
+    right: 0;
+    transform: scale(0.7);
+    background-color: $bb-blue;
+    z-index: 114;
+  }
+  &___Indigo {
+    position: relative;
+    top: 0;
+    right: 0;
+    transform: scale(0.62);
+    background-color: $bb-indigo;
+    z-index: 115;
+  }
+  &___Violet {
+    position: relative;
+    top: 0;
+    right: 0;
+    transform: scale(0.4);
+    background-color: $bb-violet;
+    z-index: 116;
+  }
+}
+
+.navButtonText {
+  position: relative;
+  width: $navButton-width;
+  padding-top: 0.25rem;
+  font-family: $font-hero;
+  font-size: 1.3rem;
+  text-align: center;
+  color: white;
+  text-shadow: 1px 1px 4px black;
+}
