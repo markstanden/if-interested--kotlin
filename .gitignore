@@ -1,5 +1,6 @@
 # Project Basics
 node_modules/
+.next/
 
 # Numerous always-ignore extensions
 *.diff
