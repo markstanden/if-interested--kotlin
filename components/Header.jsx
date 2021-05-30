@@ -1,9 +1,7 @@
-import styles from "Header.module.scss"
+import styles from './Header.module.css'
 
 function Header(props) {
-    return (
-        <header className={`${styles.header}`}>
-            if (interested) {"{"}
-        </header>
-    )
+  return <header className={`${styles.header}`}>if (interested) {'{'}</header>
 }
+
+export default Header

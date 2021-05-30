@@ -16,14 +16,13 @@
   "author": "Mark Standen",
   "license": "ISC",
   "dependencies": {
-    "next": "^9.5.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "immer": "^7.0.7",
-    "use-immer": "^0.4.1"
+    "immer": "^9.0.2",
+    "next": "^10.2.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "use-immer": "^0.5.2"
   },
   "devDependencies": {
-    "prettier": "^2.0.5",
-    "sass": "^1.26.10"
+    "prettier": "^2.3.0"
   }
 }

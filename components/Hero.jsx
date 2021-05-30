@@ -1,4 +1,4 @@
-import styles from './Hero.module.scss'
+import styles from './Hero.module.css'
 
 function Hero(props) {
   return (
