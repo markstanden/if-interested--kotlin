@@ -2,8 +2,8 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+    Helvetica Neue, sans-serif;
 }
 
 a {
@@ -13,4 +13,33 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+:root {
+  /* Font */
+  @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300&family=Montserrat:wght@200&display=swap');
+  --font-primary: 'Montserrat', Roboto, Oxygen, Ubuntu, Cantarell, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    'Open Sans', 'Helvetica Neue', sans-serif;
+  --font-secondary: 'Fira Sans';
+  --font-code: 'Fira Code';
+
+  --color-primary: rgba(0, 129, 72, 1); /* sea-green */
+  --color-secondary: #58355e; /* english violet */
+
+  --color-background: white;
+
+  --navButton-position-bottom: 1rem;
+  --navButton-position-right: 1.5rem;
+  --navButton-height: 5rem;
+  --navButton-width: 5rem;
+
+  --nav-transparency: 0.4;
+  --nav-gradient: linear-gradient(
+    90deg,
+    rgba($color-primary, $nav-transparency),
+    rgba($color-background, $nav-transparency)
+  );
+
+  --button-transparency: 0.5;
+  --button-gradient: $nav-gradient;
 }

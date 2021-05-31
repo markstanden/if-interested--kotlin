@@ -1,6 +1,7 @@
 .hero__subtitle {
+  font-family: var(--font-code);
   font-size: 2rem;
-  color: green;
+  color: var(--color-secondary);
 }
 
 .hero__title {

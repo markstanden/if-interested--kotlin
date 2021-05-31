@@ -1,5 +1,6 @@
 .header {
-  font-size: 2rem;
-  color: white;
-  background-color: lightgrey;
+  font-family: var(--font-code);
+  font-size: 4rem;
+  color: var(--color-primary);
+  background-color: var(--color-background);
 }

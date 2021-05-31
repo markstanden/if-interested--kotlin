@@ -1,7 +1,7 @@
 import Header from '../components/Header'
 import Hero from '../components/Hero'
 import Footer from '../components/Footer'
-import NavMenu from '../components/navMenu'
+import NavSystem from '../components/NavSystem'
 
 function Home() {
   return (
@@ -9,7 +9,7 @@ function Home() {
       <Header />
       <Hero />
       <Footer />
-      <NavMenu />
+      <NavSystem />
     </>
   )
 }

@@ -1,106 +1,56 @@
-@import '../styles/_theme.css';
+--item-spacing: 3rem;
 
---navButton-position-top: 1rem;
---navButton-position-right: 1.5rem;
---navButton-height: 5rem;
---navButton-width: 5rem;
-
-.navButtonContainer {
+.navMenu {
   position: fixed;
-  top: --navButton-position-top;
-  right: --navButton-position-right;
-  background-color: transparent;
-  z-index: 103;
-  height: --navButton-height;
-  width: --navButton-width;
-  cursor: pointer;
-}
-.navButtonClip {
-  position: relative;
   top: 0;
-  right: 0;
+  left: 0;
+  width: 100%;
 
-  height: calc(#{--navButton-height} / 2);
-  width: --navButton-width;
-  z-index: 105;
-  overflow: hidden;
-}
-
-.navButton {
-  position: relative;
-  top: 0;
-  right: 0;
-  height: --navButton-height;
-  width: --navButton-width;
-  border-radius: 50%;
-  z-index: 105;
-  overflow: hidden;
-
-  .navButton___Red {
-    position: relative;
-    top: 0;
-    right: 0;
-    transform: scale(1);
-    background-color: --bb-red;
-    z-index: 110;
-  }
-  .navButton___Orange {
-    position: relative;
-    top: 0;
-    right: 0;
-    transform: scale(0.85);
-    background-color: --bb-orange;
-    z-index: 111;
-  }
-  .navButton___Yellow {
-    position: relative;
-    top: 0;
-    right: 0;
-    transform: scale(0.8);
-    background-color: --bb-yellow;
-    z-index: 112;
-  }
-  .navButton___Green {
-    position: relative;
-    top: 0;
-    right: 0;
-    transform: scale(0.77);
-    background-color: --bb-green;
-    z-index: 113;
-  }
-  .navButton___Blue {
-    position: relative;
-    top: 0;
-    right: 0;
-    transform: scale(0.7);
-    background-color: --bb-blue;
-    z-index: 114;
-  }
-  .navButton___Indigo {
-    position: relative;
-    top: 0;
-    right: 0;
-    transform: scale(0.62);
-    background-color: --bb-indigo;
-    z-index: 115;
-  }
-  .navButton {
-    position: relative;
-    top: 0;
-    right: 0;
-    transform: scale(0.4);
-    background-color: --bb-violet;
-    z-index: 116;
-  }
-}
-
-.navButtonText {
-  position: relative;
-  width: $navButton-width;
-  padding-top: 0.25rem;
-  font-family: $font-hero;
-  font-size: 1.3rem;
-  text-align: center;
+  font-size: 2rem;
   color: white;
-  text-shadow: 1px 1px 4px black;
+  background: $nav-gradient;
+
+  border-bottom: 5px solid;
+
+  height: 0;
+  opacity: 0;
+  z-index: -1;
+  transition: height 0.75s ease-in-out 0.4s, z-index 1s ease-in-out 1s, opacity 1s ease-in-out 1s;
+}
+
+.navMenu___isVisible {
+  height: 6.2rem;
+  opacity: 1;
+  z-index: 10;
+  transition: height 0.75s ease-in-out 0.2s, z-index 1s ease-in-out, opacity 1s;
+}
+
+.navMenu_list {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  max-width: 80%;
+  margin-top: 2.2rem;
+  margin-bottom: 1rem;
+  margin-left: 5rem;
+  margin-right: 5rem;
+  display: flex;
+  flex-basis: content;
+  justify-content: space-around;
+  align-items: center;
+  list-style-type: none;
+}
+
+.navMenu_list_items {
+  font-size: 1.5rem;
+  font-weight: 300;
+  text-shadow: 0.5px 0.5px 8px black;
+}
+
+.navMenu___isVisible .navMenu_list {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out 0.3s;
+}
+
+.navMenu_list :not(:last-child) {
+  padding-right: $item-spacing;
 }

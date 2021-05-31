@@ -3,10 +3,10 @@ import styles from './Hero.module.css'
 function Hero(props) {
   return (
     <>
-      <h1 className={`${styles.hero__title}`}>if(interested) {'{'}</h1>
+      {/* <h1 className={`${styles.hero__title}`}>if(interested) {'{'}</h1> */}
 
       <p className={styles.hero__subtitle}>plug me back into the matrix.</p>
-      <h1 className={`${styles.hero__title} ${styles.hero__title_closing}`}>{'}'}</h1>
+      {/* <h1 className={`${styles.hero__title} ${styles.hero__title_closing}`}>{'}'}</h1> */}
       {/* <picture>
         <!-- 1380px / 16 -->
         <source
