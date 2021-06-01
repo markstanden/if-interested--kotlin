@@ -2,7 +2,7 @@
 
 function NavMenu(props) {
   return (
-    <nav className={`navMenu ${props.visible ? `navMenu___isVisible` : ''}`}>
+    <nav className={`navMenu ${props.navVisible ? `navMenu___isVisible` : ''}`}>
       <style jsx>
         {`
           .navMenu {
@@ -15,7 +15,7 @@ function NavMenu(props) {
             color: var(--color-primary);
             background: var(--nav-gradient);
 
-            border-top: 5px solid;
+            border-top: var(--nav-border) solid;
 
             height: 0;
             opacity: 0;
@@ -24,7 +24,7 @@ function NavMenu(props) {
           }
 
           .navMenu___isVisible {
-            height: var(--navHeight);
+            height: var(--nav-height);
             opacity: 1;
             z-index: 10;
             transition: height 0.75s ease-in-out 0.2s, z-index 1s ease-in-out, opacity 1s;
@@ -33,11 +33,11 @@ function NavMenu(props) {
           .navMenu_list {
             opacity: 0;
             transition: opacity 0.5s ease-in-out;
-            max-width: 80%;
+            max-width: calc(100% - var(--navButton-size) - 2 * var(--navButton-position));
             margin-top: 2.2rem;
             margin-bottom: 1rem;
-            margin-left: 5rem;
-            margin-right: 5rem;
+            margin-left: 1rem;
+            margin-right: 1rem;
             display: flex;
             flex-basis: content;
             justify-content: space-around;

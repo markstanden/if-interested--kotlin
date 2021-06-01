@@ -2,43 +2,29 @@
 
 function NavButton() {
   return (
-    <button className="navButtonContainer">
-      <div className="navButton">
-        <div className="navButtonText">Menu</div>
-      </div>
+    <button className="navButton">
+      {/* <div className="navButton"> */}
+      <div className="navButtonText">Menu</div>
+      {/* </div> */}
 
       <style jsx>{`
-        --navButton-size: calc(var(--navHeight) * 0.8);
-
-        .navButtonContainer {
-          border: none;
-          position: fixed;
-          bottom: calc(var(--navButton-size) / 2);
-          transform: translate(0%, 50%);
-          right: var(--navButton-position-right);
-          background-color: transparent;
-          z-index: 103;
-          height: var(--navButton-size);
-          width: var(--navButton-size));
-          cursor: pointer;
-        }
-
         .navButton {
-          position: relative;
-          top: 0;
-          right: 0;
+          position: fixed;
+          bottom: var(--navButton-position);
+          right: var(--navButton-position);
           height: var(--navButton-size);
           width: var(--navButton-size);
           border-radius: 50%;
           z-index: 105;
           overflow: hidden;
-          background-color: var(--color-secondary);
+
+          border: 4px solid var(--color-primary);
+          box-shadow: 0.5px 0.5px 8px var(--color-shadow);
+          background-color: var(--color-background);
         }
 
         .navButtonText {
           position: relative;
-          top: calc(var(--navButton-size) /4);
-          width: var(--navButton-size);
           padding-top: 0.25rem;
           font-family: var(font-hero);
           font-size: 1.3rem;

@@ -21,7 +21,7 @@ function NavSystem(props) {
       <div onClick={clickHandler}>
         <NavButton />
       </div>
-      <NavMenu visible={navVisible} />
+      <NavMenu navVisible={navVisible} />
     </>
   )
 }

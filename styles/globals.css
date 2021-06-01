@@ -27,21 +27,19 @@ a {
   --color-secondary: #58355e; /* english violet */
 
   --color-background: white;
+  --color-shadow: black;
 
-  --navHeight: 6.2rem;
+  --size-border: 4px;
 
-  --navButton-position-bottom: 1rem;
-  --navButton-position-right: 1.5rem;
-  --navButton-height: 5rem;
-  --navButton-width: 5rem;
-
+  /* Navigation System Styling */
+  --nav-height: 6.2rem;
+  --nav-border: var(--size-border);
   --nav-transparency: 0.4;
   --nav-gradient: linear-gradient(
     90deg,
-    rgba($color-primary, $nav-transparency),
-    rgba($color-background, $nav-transparency)
+    rgba(var(--color-primary), var(--nav-transparency), rgba(var(--color-background), var(--nav-transparency)))
   );
 
-  --button-transparency: 0.5;
-  --button-gradient: $nav-gradient;
+  --navButton-size: calc(var(--nav-height) * 0.8);
+  --navButton-position: calc((var(--nav-height) - var(--navButton-size) - var(--nav-border)) / 2);
 }
