@@ -28,6 +28,8 @@ a {
 
   --color-background: white;
 
+  --navHeight: 6.2rem;
+
   --navButton-position-bottom: 1rem;
   --navButton-position-right: 1.5rem;
   --navButton-height: 5rem;
