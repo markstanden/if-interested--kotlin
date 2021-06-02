@@ -1,7 +1,7 @@
-function NavButton() {
+function NavButton(props) {
   return (
     <button className="navButton">
-      <div className="navButton__icon" />
+      <div className={`navButton_icon ${props.navVisible ? 'navButton_icon__navVisible' : ''}`} />
       <style jsx>{`
         .navButton {
           position: fixed;
@@ -18,13 +18,13 @@ function NavButton() {
           background-color: var(--color-background);
         }
 
-        .navButton__icon {
+        .navButton_icon {
           position: relative;
-          transform: translate(0%, -200%);
+          transform: translate(0%, -100%);
         }
-        .navButton__icon,
-        .navButton__icon::before,
-        .navButton__icon::after {
+        .navButton_icon,
+        .navButton_icon::before,
+        .navButton_icon::after {
           width: calc(var(--navButton-size) * 0.5);
           height: calc(var(--size-border) * 0.5);
           background-color: var(--color-primary);
@@ -32,25 +32,33 @@ function NavButton() {
           transition: all 0.1s;
         }
 
-        .navButton__icon::before,
-        .navButton__icon::after {
+        .navButton_icon::before,
+        .navButton_icon::after {
           content: '';
           position: absolute;
           left: 0;
         }
 
-        .navButton__icon::before {
+        .navButton_icon::before {
           top: -1rem;
         }
-        .navButton__icon::after {
+        .navButton_icon::after {
           top: 1rem;
         }
 
-        .navButton:hover .navButton__icon::before {
-          top: -0.85rem;
+        //.navButton:hover .navButton_icon::before {top: -0.85rem;}
+        //.navButton:hover .navButton_icon::after {top: 0.85rem; }
+
+        .navButton_icon__navVisible {
+          background-color: transparent;
         }
-        .navButton:hover .navButton__icon::after {
-          top: 0.85rem;
+        .navButton_icon__navVisible::before {
+          top: calc(var(--navButton-size) / 50%);
+          transform: rotate(45deg);
+        }
+        .navButton_icon__navVisible::after {
+          top: calc(var(--navButton-size) / 50%);
+          transform: rotate(-45deg);
         }
       `}</style>
     </button>

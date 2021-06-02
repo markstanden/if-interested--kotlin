@@ -19,7 +19,7 @@ function NavSystem(props) {
   return (
     <>
       <div onClick={clickHandler}>
-        <NavButton />
+        <NavButton navVisible={navVisible} />
       </div>
       <NavMenu navVisible={navVisible} />
     </>

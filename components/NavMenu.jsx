@@ -43,7 +43,7 @@ function NavMenu(props) {
           }
 
           .navMenu_list_items {
-            padding: 0.6rem;
+            padding-top: var(--nav-border);
             font-size: 1.5rem;
             font-weight: 300;
             text-shadow: 0.5px 0.5px 10px black;
