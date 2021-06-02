@@ -20,14 +20,14 @@ function NavMenu(props) {
             opacity: 0;
             z-index: -1;
 
-            transition: height 0.75s ease-in-out 0.4s, z-index 1s ease-in-out 1s, opacity 1s ease-in-out 1s;
+            transition: max-height 0.75s ease-in-out 0.4s, z-index 1s ease-in-out 1s, opacity 1s ease-in-out 1s;
           }
 
           .navMenu___isVisible {
             max-height: var(--nav-height);
             opacity: 1;
             z-index: 10;
-            transition: height 0.75s ease-in-out 0.2s, z-index 1s ease-in-out, opacity 1s;
+            transition: max-height 0.75s ease-in-out 0.2s, z-index 1s ease-in-out, opacity 1s;
           }
 
           .navMenu_list {
