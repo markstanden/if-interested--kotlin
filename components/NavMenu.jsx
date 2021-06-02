@@ -6,7 +6,7 @@ function NavMenu(props) {
       <style jsx>
         {`
           .navMenu {
-            height: 0;
+            max-height: 0;
             position: fixed;
             bottom: 0;
             left: 0;
@@ -24,7 +24,7 @@ function NavMenu(props) {
           }
 
           .navMenu___isVisible {
-            height: var(--nav-height);
+            max-height: var(--nav-height);
             opacity: 1;
             z-index: 10;
             transition: height 0.75s ease-in-out 0.2s, z-index 1s ease-in-out, opacity 1s;
@@ -68,7 +68,7 @@ function NavMenu(props) {
 
           @media only screen and (min-width: 900px) {
             .navMenu___isVisible {
-              height: var(--nav-height);
+              max-height: var(--nav-height);
             }
 
             .navMenu_list_items {
