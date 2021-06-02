@@ -5,8 +5,12 @@ function NavMenu(props) {
     <div className={`navMenu ${props.navVisible ? `navMenu___isVisible` : ''}`}>
       <style jsx>
         {`
+          .table {
+            display: table; /* Allow the centering to work */
+            margin: 0 auto;
+          }
+
           .navMenu {
-            height: 0;
             position: fixed;
             bottom: 0;
             left: 0;
@@ -17,27 +21,29 @@ function NavMenu(props) {
 
             border-top: var(--nav-border) solid;
 
-            opacity: 0;
+            opacity: 1;
             z-index: -1;
 
-            transition: height 0.75s ease-in-out 0.4s, z-index 1s ease-in-out 1s, opacity 1s ease-in-out 1s;
+            transform: scaleY(0);
+            transform-origin: bottom;
+
+            transition: transform 0.45s, z-index 1s, opacity 0.1s;
           }
 
           .navMenu___isVisible {
-            height: var(--nav-height);
+            transform: scaleY(1);
             opacity: 1;
             z-index: 10;
-            transition: height 0.75s ease-in-out 0.2s, z-index 1s ease-in-out, opacity 1s;
+            transition: transform 0.25s, z-index 0.3s, opacity 0.3s;
           }
 
           .navMenu_list {
-            padding-top: 0.5rem;
-            padding-bottom: 0.5rem;
-            padding-left: 2rem;
-            display: list-item;
+            margin: 0;
+            padding: 0.5rem 0 1rem 2rem;
+
             list-style-type: none;
             opacity: 0;
-            transition: opacity 0.5s ease-in-out;
+            transition: opacity 0.25s;
 
             display: flex;
             flex-flow: row wrap;
@@ -63,33 +69,34 @@ function NavMenu(props) {
 
           .navMenu___isVisible .navMenu_list {
             opacity: 1;
-            transition: opacity 0.5s ease-in-out 0.3s;
+            transition: opacity 0.3s ease-in-out 0.3s;
           }
 
           @media only screen and (min-width: 900px) {
             .navMenu___isVisible {
-              height: var(--nav-height);
             }
 
             .navMenu_list_items {
+              height: 100%;
               font-size: 1.5rem;
               font-weight: 300;
-              padding-top: 0.4rem;
+              padding: 0;
             }
 
             .navMenu_list {
+              padding: 2.5rem 0 0rem 0;
               opacity: 0;
               transition: opacity 0.5s ease-in-out;
               max-width: calc(100% - var(--navButton-size) - 2 * var(--navButton-position));
-              padding-right: var(--navButton-size);
-              transform: translate(0, 50%);
+
+              height: var(--nav-height);
               flex-flow: row nowrap;
+              flex: 1 0 auto;
               justify-content: space-around;
             }
           }
         `}
       </style>
-
       <ul className="navMenu_list">
         <li className="navMenu_list_items">Home</li>
         <li className="navMenu_list_items">Blog</li>
