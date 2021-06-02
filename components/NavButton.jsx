@@ -1,12 +1,7 @@
-// import styles from './NavButton.module.css'
-
 function NavButton() {
   return (
     <button className="navButton">
-      {/* <div className="navButton"> */}
-      <div className="navButtonText">Menu</div>
-      {/* </div> */}
-
+      <div className="navButton__icon" />
       <style jsx>{`
         .navButton {
           position: fixed;
@@ -23,14 +18,39 @@ function NavButton() {
           background-color: var(--color-background);
         }
 
-        .navButtonText {
+        .navButton__icon {
           position: relative;
-          padding-top: 0.25rem;
-          font-family: var(font-hero);
-          font-size: 1.3rem;
-          text-align: center;
-          color: red;
-          text-shadow: 1px 1px 4px black;
+          transform: translate(0%, -200%);
+        }
+        .navButton__icon,
+        .navButton__icon::before,
+        .navButton__icon::after {
+          width: calc(var(--navButton-size) * 0.5);
+          height: calc(var(--size-border) * 0.5);
+          background-color: var(--color-primary);
+          display: inline-block;
+          transition: all 0.1s;
+        }
+
+        .navButton__icon::before,
+        .navButton__icon::after {
+          content: '';
+          position: absolute;
+          left: 0;
+        }
+
+        .navButton__icon::before {
+          top: -1rem;
+        }
+        .navButton__icon::after {
+          top: 1rem;
+        }
+
+        .navButton:hover .navButton__icon::before {
+          top: -0.85rem;
+        }
+        .navButton:hover .navButton__icon::after {
+          top: 0.85rem;
         }
       `}</style>
     </button>

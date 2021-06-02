@@ -1,11 +1,7 @@
-import styles from './Hero.module.css'
-
 function Hero(props) {
   return (
     <>
-      {/* <h1 className={`${styles.hero__title}`}>if(interested) {'{'}</h1> */}
-
-      <p className={styles.hero__subtitle}>plug me back into the matrix.</p>
+      <p className="hero__subtitle">plug me back into the matrix.</p>
       {/* <h1 className={`${styles.hero__title} ${styles.hero__title_closing}`}>{'}'}</h1> */}
       {/* <picture>
         <!-- 1380px / 16 -->
@@ -35,6 +31,19 @@ function Hero(props) {
         />
       </picture>
     */}
+
+      <style jsx>{`
+        .hero__subtitle {
+          font-family: var(--font-code);
+          font-size: 2rem;
+          color: var(--color-secondary);
+        }
+
+        .hero__title {
+          font-size: 4rem;
+          color: indigo;
+        }
+      `}</style>
     </>
   )
 }
