@@ -78,7 +78,7 @@ function NavMenu(props) {
 
             .navMenu_list_items {
               height: 100%;
-              font-size: 1.5rem;
+              font-size: 1.8rem;
               font-weight: 300;
               padding: 0;
             }
