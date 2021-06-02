@@ -17,12 +17,12 @@ function NavSystem(props) {
   }
 
   return (
-    <>
+    <nav>
       <div onClick={clickHandler}>
         <NavButton navVisible={navVisible} />
       </div>
       <NavMenu navVisible={navVisible} />
-    </>
+    </nav>
   )
 }
 

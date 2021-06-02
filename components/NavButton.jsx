@@ -14,7 +14,7 @@ function NavButton(props) {
           overflow: hidden;
 
           border: 4px solid var(--color-primary);
-          box-shadow: 0.5px 0.5px 8px var(--color-shadow);
+          box-shadow: 0.5px 0.5px 18px var(--color-shadow);
           background-color: var(--color-background);
         }
 
@@ -25,7 +25,7 @@ function NavButton(props) {
         .navButton_icon,
         .navButton_icon::before,
         .navButton_icon::after {
-          width: calc(var(--navButton-size) * 0.5);
+          width: calc(var(--navButton-size) * 0.4);
           height: calc(var(--size-border) * 0.5);
           background-color: var(--color-primary);
           display: inline-block;
@@ -40,10 +40,10 @@ function NavButton(props) {
         }
 
         .navButton_icon::before {
-          top: -1rem;
+          top: calc(var(--navButton-size) * -0.15);
         }
         .navButton_icon::after {
-          top: 1rem;
+          top: calc(var(--navButton-size) * 0.15);
         }
 
         //.navButton:hover .navButton_icon::before {top: -0.85rem;}

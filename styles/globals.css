@@ -25,13 +25,13 @@ a {
   --color-primary: rgba(0, 129, 72, 1); /* sea-green */
   --color-secondary: #58355e; /* english violet */
 
-  --color-background: white;
-  --color-shadow: black;
+  --color-background: rgba(255, 255, 255, 1);
+  --color-shadow: rgba(0, 0, 0, 0.5);
 
   --size-border: 4px;
 
   /* Navigation System Styling */
-  --nav-height: 6.2rem;
+
   --nav-border: var(--size-border);
   --nav-transparency: 0.4;
   --nav-gradient: linear-gradient(
@@ -39,6 +39,15 @@ a {
     rgba(var(--color-primary), var(--nav-transparency), rgba(var(--color-background), var(--nav-transparency)))
   );
 
-  --navButton-size: calc(var(--nav-height) * 0.8);
-  --navButton-position: calc((var(--nav-height) - var(--navButton-size) - var(--nav-border)) / 2);
+  --navButton-size: 5rem;
+  --nav-height: min-content;
+  --navButton-position: 1rem;
+}
+
+@media only screen and (min-width: 900px) {
+  :root {
+    --navButton-size: 5rem;
+    --nav-height: calc(var(--navButton-size) * 1.4);
+    --navButton-position: calc((var(--nav-height) - var(--navButton-size) - var(--nav-border)) / 2);
+  }
 }
