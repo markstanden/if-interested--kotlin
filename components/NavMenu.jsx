@@ -53,13 +53,14 @@ function NavMenu(props) {
 
           .navMenu_list_items {
             padding-top: 1.5vh;
-            font-size: 1.5rem;
-            font-weight: 300;
+            font-family: inherit;
+            font-size: 2rem;
+            font-weight: 600;
             text-shadow: 0.5px 0.5px 10px var(--color-shadow);
           }
           .navMenu_list_items :hover {
             transform: translate(0, -1px);
-            text-shadow: 0.5px 1.5px 10px var(--color-shadow);
+            text-shadow: 0.5px 1.5px 15px var(--color-shadow);
           }
 
           .navMenu_list_items :active {

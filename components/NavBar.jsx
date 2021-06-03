@@ -26,7 +26,7 @@ function NavBar(props) {
         <a href="#">Blog</a>
         <a href="#">Stack</a>
         <a href="#">Markdown</a>
-        <a href="#">Github</a>
+        <a href="https://www.github.com/markstanden">Github</a>
         <a href="#">Author</a>
       </NavMenu>
     </nav>

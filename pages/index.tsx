@@ -6,9 +6,9 @@ import NavBar from '../components/NavBar'
 function Home() {
   return (
     <>
-      <Header />
-      <Hero />
-      <Footer />
+      <Header language="python">
+        <Hero />
+      </Header>
       <NavBar />
     </>
   )
