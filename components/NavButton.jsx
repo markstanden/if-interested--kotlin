@@ -20,13 +20,14 @@ function NavButton(props) {
 
         .navButton_icon {
           position: relative;
-          transform: translate(0%, -100%);
+          transform: translate(0%, -4px);
         }
+
         .navButton_icon,
         .navButton_icon::before,
         .navButton_icon::after {
-          width: calc(var(--navButton-size) * 0.4);
-          height: calc(var(--size-border) * 0.5);
+          width: calc(var(--navButton-size) * 0.5);
+          height: 1px;
           background-color: var(--color-primary);
           display: inline-block;
           transition: all 0.1s;
@@ -46,11 +47,9 @@ function NavButton(props) {
           top: calc(var(--navButton-size) * 0.15);
         }
 
-        //.navButton:hover .navButton_icon::before {top: -0.85rem;}
-        //.navButton:hover .navButton_icon::after {top: 0.85rem; }
-
         .navButton_icon__navVisible {
           background-color: transparent;
+          transition: background-color 0.1s;
         }
         .navButton_icon__navVisible::before {
           top: calc(var(--navButton-size) / 50%);

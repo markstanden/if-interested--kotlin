@@ -97,13 +97,9 @@ function NavMenu(props) {
           }
         `}
       </style>
+
       <ul className="navMenu_list">
-        <li className="navMenu_list_items">Home</li>
-        <li className="navMenu_list_items">Blog</li>
-        <li className="navMenu_list_items">Stack</li>
-        <li className="navMenu_list_items">Markdown</li>
-        <li className="navMenu_list_items">Github</li>
-        <li className="navMenu_list_items">Author</li>
+        {props.children ? props.children.map(navItem => <li className="navMenu_list_items">{navItem}</li>) : ''}
       </ul>
     </div>
   )
