@@ -2,18 +2,13 @@ function Hero(props) {
   return (
     <>
       <p className="hero__subtitle">plug me back into the matrix.</p>
-      <pre className="language-python"><code className="code">
-        def plug_me_back_in(had_enough: bool) -> None:
-            """Returns you to ignorant bliss"
-            if had_enough:
-                # arrange meeting with smith
-                # kill neo
-                # steak for breakfast
-            else:
-                # Wear leather trenchcoats
-                # use banana phones
-                # learn kung-fu
-      </code></pre>
+      <pre data-language="python">
+        <code className="code">
+          def plug_me_back_in(had_enough: bool) -> None: """Returns you to ignorant bliss" if had_enough: # arrange
+          meeting with smith # kill neo # steak for breakfast else: # Wear leather trenchcoats # use banana phones #
+          learn kung-fu
+        </code>
+      </pre>
       {/* <h1 className={`${styles.hero__title} ${styles.hero__title_closing}`}>{'}'}</h1> */}
       {/* <picture>
         <!-- 1380px / 16 -->

@@ -1,6 +1,6 @@
 {
   "htmlWhitespaceSensitivity": "strict",
-  "vueIndentScriptAndStyle": true,
+  "vueIndentScriptAndStyle": false,
   "printWidth": 120,
   "tabWidth": 2,
   "useTabs": false,
@@ -8,7 +8,7 @@
   "singleQuote": true,
   "trailingComma": "es5",
   "bracketSpacing": true,
-  "jsxBracketSameLine": true,
+  "jsxBracketSameLine": false,
   "arrowParens": "avoid",
   "quoteProps": "consistent"
 }

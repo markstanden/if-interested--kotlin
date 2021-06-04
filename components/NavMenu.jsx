@@ -1,4 +1,9 @@
-// import styles from './NavMenu.module.css'
+// Creates a nav menu item from the passed props.children
+const createNavItem = (navItem, index) => (
+  <li className="navMenu_list_items" id={index}>
+    {navItem}
+  </li>
+)
 
 function NavMenu(props) {
   return (
@@ -98,10 +103,8 @@ function NavMenu(props) {
           }
         `}
       </style>
-
-      <ul className="navMenu_list">
-        {props.children ? props.children.map(navItem => <li className="navMenu_list_items">{navItem}</li>) : ''}
-      </ul>
+      {/* iterates the passed children, and adds them to the navbar as unordered list items */}
+      <ul className="navMenu_list">{props.children ? props.children.map(createNavItem) : ''}</ul>
     </div>
   )
 }
