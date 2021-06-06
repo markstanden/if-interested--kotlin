@@ -56,7 +56,8 @@ function NavMenu(props) {
             align-items: flex-start;
           }
 
-          .navMenu_list_items {
+          .navMenu_list_items,
+          .navMenu_list_items ::child {
             padding-top: 1.5vh;
             font-family: inherit;
             font-size: 2rem;
@@ -84,8 +85,7 @@ function NavMenu(props) {
 
             .navMenu_list_items {
               height: 100%;
-              font-size: 1.8rem;
-              font-weight: 300;
+              font-size: 3.8rem;
               padding: 0;
             }
 
