@@ -1,10 +1,8 @@
 import Header from '../components/Header'
-import Hero from '../components/Hero'
 import MarkdownArticle from '../lib/markdownToJsx'
 import NavBar from '../components/NavBar'
-import { getAllPosts, getPostBySlug } from '../lib/api'
+import { getAllPosts } from '../lib/api'
 
-import ReactMarkdown from 'react-markdown'
 const Index = props => {
   const latestPost = props.posts[0]
   const otherPosts = props.posts.slice(1)
