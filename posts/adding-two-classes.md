@@ -36,7 +36,7 @@ The easiest (and simplest IMO) way to do this is using template literals:
 
 open the component.module.js file and import the scss module, and withing the JSX add the classes as follows:
 
-'''jsx
+```jsx
 import styles from './MyComponent.module.scss'
 
 <h1 className={`${styles.heading} ${styles.heading__title}`}> Title </h1>

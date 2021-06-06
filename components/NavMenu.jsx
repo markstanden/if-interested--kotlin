@@ -1,6 +1,6 @@
 // Creates a nav menu item from the passed props.children
 const createNavItem = (navItem, index) => (
-  <li className="navMenu_list_items" id={index}>
+  <li className="navMenu_list_items" key={'nav-' + index}>
     {navItem}
   </li>
 )

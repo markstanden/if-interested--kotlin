@@ -1,4 +1,3 @@
-import { FC } from 'react'
 import ReactMarkdown from 'react-markdown'
 import gfm from 'remark-gfm'
 
@@ -8,7 +7,9 @@ type MarkdownArticleProps = {
 }
 
 const MarkdownArticle = ({ markdown }: MarkdownArticleProps) => (
-  <ReactMarkdown remarkPlugins={[gfm]}>{markdown}</ReactMarkdown>
+  <article>
+    <ReactMarkdown remarkPlugins={[gfm]}>{markdown}</ReactMarkdown>
+  </article>
 )
 
 export default MarkdownArticle
