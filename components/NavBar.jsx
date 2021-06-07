@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react'
 
+import Link from 'next/link'
+
 import NavButton from './NavButton'
 import NavMenu from './NavMenu'
 
@@ -22,12 +24,12 @@ function NavBar(props) {
         <NavButton navVisible={navVisible} />
       </div>
       <NavMenu navVisible={navVisible}>
-        <a href="#">Home</a>
-        <a href="#">Blog</a>
-        <a href="#">Stack</a>
-        <a href="#">Markdown</a>
+        <Link href="/">Home</Link>
+        <Link href="/latest">Blog</Link>
+        <Link href="#">Stack</Link>
+        <Link href="#">Markdown</Link>
         <a href="https://www.github.com/markstanden">Github</a>
-        <a href="#">Author</a>
+        <Link href="#">Author</Link>
       </NavMenu>
     </nav>
   )

@@ -1,16 +1,14 @@
 ---
-title: 'importing css, sass, scss modules within next.js'
+title: 'Adding two css classes to a component in next.js'
 excerpt: 'next.js now allows auto importing of css and scss out of the box, which is lovely.'
 coverImage: '/assets/blog/hello-world/cover.jpg'
-date: '2020-06-16T05:35:07.322Z'
+date: '2020-06-16'
 authorName: Mark Standen
 authorPicture: '/assets/blog/authors/tim.jpeg'
 ogImageURL: '/assets/blog/hello-world/cover.jpg'
 ---
 
-# Adding two css classes to a component in next.js
-
-adding multiple classes to a react component in next.js using scss within a .module.scss file:
+## Adding multiple classes to a react component in next.js using scss within a .module.scss file:
 
 within MyComponent.module.scss we have css for both the heading of the component and different font sizes for the title and the subtitle. So I want to be able to add two classes to each element.
 

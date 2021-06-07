@@ -10,11 +10,6 @@ function NavMenu(props) {
     <div className={`navMenu ${props.navVisible ? `navMenu___isVisible` : ''}`}>
       <style jsx>
         {`
-          .table {
-            display: table; /* Allow the centering to work */
-            margin: 0 auto;
-          }
-
           .navMenu {
             position: fixed;
             bottom: 0;
@@ -56,8 +51,7 @@ function NavMenu(props) {
             align-items: flex-start;
           }
 
-          .navMenu_list_items,
-          .navMenu_list_items ::child {
+          .navMenu_list_items {
             padding-top: 1.5vh;
             font-family: inherit;
             font-size: 2rem;

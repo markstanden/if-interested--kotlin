@@ -1,11 +1,15 @@
 // Next.js types
 import { GetStaticProps } from 'next'
-
-import Header from '../components/Header'
-import MarkdownArticle from '../lib/markdownToJsx'
-import NavBar from '../components/NavBar'
-import { getAllPosts } from '../lib/api'
+// App types
 import { MarkdownPost } from '../types/MarkdownMeta'
+
+// Backend functions
+import { getAllPosts } from '../lib/api'
+
+// Frontend Components
+import Header from '../components/Header'
+import NavBar from '../components/NavBar'
+import Preview from '../components/Preview'
 
 type IndexProps = {
   posts: MarkdownPost[]
@@ -18,17 +22,11 @@ const Index = (props: IndexProps) => {
   return (
     <>
       <Header language="python"></Header>
-      <p>{latestPost.title}</p>
-      <p>{latestPost.date}</p>
-      <p>{latestPost.authorName}</p>
-      <MarkdownArticle markdown={latestPost.content} />
+
+      <Preview post={latestPost} />
 
       {otherPosts.map((post, index) => (
-        <article key={index}>
-          <p>{post.title}</p>
-          <p>{post.date}</p>
-          <p>{post.authorName}</p>
-        </article>
+        <Preview post={post} />
       ))}
       <NavBar />
     </>

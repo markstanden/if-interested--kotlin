@@ -16,13 +16,6 @@ a {
   box-sizing: border-box;
 }
 
-article {
-  border: var(--size-border) solid var(--color-primary);
-  margin: 2rem 1rem 2rem 1rem;
-  padding: 1rem 2rem 1rem 2rem;
-  border-radius: 1.5rem;
-}
-
 :root {
   /* Font */
   font-family: 'Montserrat', Roboto, Oxygen, Ubuntu, Cantarell, -apple-system, BlinkMacSystemFont, 'Segoe UI',

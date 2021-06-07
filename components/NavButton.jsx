@@ -13,7 +13,7 @@ function NavButton(props) {
           z-index: 105;
           overflow: hidden;
 
-          border: 4px solid var(--color-primary);
+          border: var(--size-border) solid var(--color-primary);
           box-shadow: 0.5px 0.5px 18px var(--color-shadow);
           background-color: var(--color-background);
         }
