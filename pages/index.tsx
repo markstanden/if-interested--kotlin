@@ -1,9 +1,17 @@
+// Next.js types
+import { GetStaticProps } from 'next'
+
 import Header from '../components/Header'
 import MarkdownArticle from '../lib/markdownToJsx'
 import NavBar from '../components/NavBar'
 import { getAllPosts } from '../lib/api'
+import { MarkdownPost } from '../types/MarkdownMeta'
 
-const Index = props => {
+type IndexProps = {
+  posts: MarkdownPost[]
+}
+
+const Index = (props: IndexProps) => {
   const latestPost = props.posts[0]
   const otherPosts = props.posts.slice(1)
 
@@ -12,14 +20,14 @@ const Index = props => {
       <Header language="python"></Header>
       <p>{latestPost.title}</p>
       <p>{latestPost.date}</p>
-      <p>{latestPost.author.name}</p>
+      <p>{latestPost.authorName}</p>
       <MarkdownArticle markdown={latestPost.content} />
 
       {otherPosts.map((post, index) => (
         <article key={index}>
           <p>{post.title}</p>
           <p>{post.date}</p>
-          <p>{post.author.name}</p>
+          <p>{post.authorName}</p>
         </article>
       ))}
       <NavBar />
@@ -29,8 +37,17 @@ const Index = props => {
 
 export default Index
 
-export async function getStaticProps() {
-  const posts = getAllPosts(['title', 'date', 'slug', 'author', 'coverImage', 'excerpt', 'content'])
+export const getStaticProps: GetStaticProps = async (/* context */) => {
+  const posts = getAllPosts([
+    'title',
+    'date',
+    'slug',
+    'authorName',
+    'authorPicture',
+    'coverImage',
+    'excerpt',
+    'content',
+  ])
 
   return {
     props: { posts },
