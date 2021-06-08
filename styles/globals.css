@@ -26,6 +26,7 @@ a {
   --font-code: 'Fira Code';
 
   /* Font Sizes */
+  --nav-font-size: 2rem;
   --header-size: 3rem;
 
   /* Colours */
@@ -39,12 +40,12 @@ a {
   --border-size: 3px;
 
   /* Base Padding and Margins */
-  --margin-base: 1rem;
-  --padding-base: 1rem;
+  --margin-base: 1rem 0.5rem 1rem 0.5rem;
+  --padding-base: 1rem 0.5rem 1rem 0.5rem;
 
   /* Navigation System Styling */
-  --nav-border: var(--size-border);
-  --nav-gradient: radial-gradient(circle at right bottom, var(--color-primary) 0, var(--color-background) 30%);
+  --nav-border: var(--border-size);
+  --nav-gradient: radial-gradient(circle at right bottom, var(--color-primary) 0, var(--color-background) 20%);
 
   --navButton-size: 4rem;
   --nav-height: min-content;
@@ -74,11 +75,12 @@ a {
 
     /* Base Padding and Margins */
     --margin-base: 2rem 1rem 2rem 1rem;
-    --padding-base: 2rem 1rem 2rem 1rem;
+    --padding-base: 1.2rem 1rem 1.2rem 1rem;
 
     /* Header and Nav */
+    --nav-font-size: 1.6rem;
     --header-size: 4rem;
-    --navButton-size: 4rem;
+    --navButton-size: 5rem;
 
     --nav-height: calc(var(--navButton-size) * 1.4);
     --navButton-position: calc((var(--nav-height) - var(--navButton-size) - var(--nav-border)) / 2);

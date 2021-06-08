@@ -35,7 +35,7 @@ function Header(props) {
             border: var(--border-size) solid var(--color-primary);
             border-left: none;
             border-top: none;
-            box-shadow: 1px 1px 20px var(--color-shadow);
+            box-shadow: 1px 1px 12px var(--color-primary);
           }
 
           .main_title {
@@ -51,8 +51,8 @@ function Header(props) {
           @media only screen and (min-width: 56.25em) {
             .main_title__top {
               padding: var(--padding-base);
-
               border: var(--border-size) solid var(--color-primary);
+              border-top: none;
               border-bottom-left-radius: 1rem;
               left: var(--padding-base);
             }

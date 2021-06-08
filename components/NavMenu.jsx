@@ -1,11 +1,6 @@
-// Creates a nav menu item from the passed props.children
-const createNavItem = (navItem, index) => (
-  <li className="navMenu_list_items" key={'nav-' + index}>
-    {navItem}
-  </li>
-)
+import Link from 'next/link'
 
-function NavMenu(props) {
+const NavMenu = props => {
   return (
     <div className={`navMenu ${props.navVisible ? `navMenu___isVisible` : ''}`}>
       <style jsx>
@@ -20,7 +15,6 @@ function NavMenu(props) {
             background: var(--nav-gradient);
 
             border-top: var(--nav-border) solid;
-
             opacity: 1;
             z-index: -1;
 
@@ -31,6 +25,7 @@ function NavMenu(props) {
           }
 
           .navMenu___isVisible {
+            box-shadow: -1px -1px 8px var(--color-primary);
             transform: scaleY(1);
             opacity: 1;
             z-index: 10;
@@ -38,8 +33,8 @@ function NavMenu(props) {
           }
 
           .navMenu_list {
-            margin: 0;
-            padding: 0.5rem 0 1rem 2rem;
+            margin: var(--margin-base);
+            padding: var(--padding-base);
 
             list-style-type: none;
             opacity: 0;
@@ -54,7 +49,7 @@ function NavMenu(props) {
           .navMenu_list_items {
             padding-top: 1.5vh;
             font-family: inherit;
-            font-size: 2rem;
+            font-size: var(--nav-font-size);
             font-weight: 600;
             text-shadow: 0.5px 0.5px 10px var(--color-shadow);
           }
@@ -79,7 +74,6 @@ function NavMenu(props) {
 
             .navMenu_list_items {
               height: 100%;
-              font-size: 3.8rem;
               padding: 0;
             }
 
@@ -98,7 +92,26 @@ function NavMenu(props) {
         `}
       </style>
       {/* iterates the passed children, and adds them to the navbar as unordered list items */}
-      <ul className="navMenu_list">{props.children ? props.children.map(createNavItem) : ''}</ul>
+      <ul className="navMenu_list">
+        <li className="navMenu_list_items">
+          <Link href="/">Home</Link>
+        </li>
+        <li className="navMenu_list_items">
+          <Link href="/latest">Blog</Link>
+        </li>
+        <li className="navMenu_list_items">
+          <Link href="#">Stack</Link>
+        </li>
+        <li className="navMenu_list_items">
+          <Link href="#">Markdown</Link>
+        </li>
+        <li className="navMenu_list_items">
+          <a href="https://www.github.com/markstanden">Github</a>
+        </li>
+        <li className="navMenu_list_items">
+          <Link href="#">Author</Link>
+        </li>
+      </ul>
     </div>
   )
 }
