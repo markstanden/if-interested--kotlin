@@ -8,7 +8,7 @@ authorImage: '/ms-profile.jpeg'
 ogImageURL: '/assets/blog/hello-world/cover.jpg'
 ---
 
-## Adding multiple classes to a react component in next.js using scss within a .module.scss file:
+## Adding multiple classes to a react component in next.js using scss within a .module.scss file
 
 within MyComponent.module.scss we have css for both the heading of the component and different font sizes for the title and the subtitle. So I want to be able to add two classes to each element.
 

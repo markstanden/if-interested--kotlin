@@ -23,10 +23,10 @@ const Index = (props: IndexProps) => {
     <>
       <Header language="python"></Header>
 
-      <Preview post={latestPost} />
+      <Preview post={latestPost} darkMode={true} />
 
       {otherPosts.map((post, index) => (
-        <Preview post={post} />
+        <Preview post={post} darkMode={false} />
       ))}
       <NavBar />
     </>

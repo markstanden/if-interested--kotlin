@@ -6,15 +6,16 @@ import PostTitle from './PostTitle'
 
 type PreviewProps = {
   post: MarkdownPost
+  darkMode: boolean
 }
 
-const Preview = ({ post }: PreviewProps) => {
+const Preview = ({ post, darkMode }: PreviewProps) => {
   return (
     <Container>
       <div className="preview">
         <PostTitle>{post.title}</PostTitle>
         <AuthorImage authorName={post.authorName} authorImagePath={post.authorImage} postDate={post.date} />
-        <MarkdownArticle markdown={post.content} />
+        <MarkdownArticle darkMode={darkMode} markdown={post.content} />
       </div>
       <style jsx>
         {`

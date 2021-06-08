@@ -48,12 +48,12 @@ $main-color: red;
 
 open the \_app.js file an add the following (this is straight from the next.js docs and is required)
 
-````jsx
- import '../styles/styles.scss'
+```jsx
+import '../styles/styles.scss'
 
- // This default export is required in a new `pages/_app.js` file.
- export default function MyApp({ Component, pageProps }) {
- return <Component {...pageProps} />
+// This default export is required in a new `pages/_app.js` file.
+export default function MyApp({ Component, pageProps }) {
+  return <Component {...pageProps} />
 }
 ```
 
@@ -61,14 +61,14 @@ now in your /pages/index.js file:
 
 ```jsx
 export default function Home() {
-	return (
-		<div>
-			{" "}
-			Red <span className="myclass"> Blue </span>
-		</div>
-	)
+  return (
+    <div>
+      {' '}
+      Red <span className="myclass"> Blue </span>
+    </div>
+  )
 }
-````
+```
 
 the text should display as red and blue.
 
@@ -92,7 +92,9 @@ export default function MyComponent() {
 
 create the MyComponent.module.scss file, next.js requires it to use the .module.scss convention
 
+```bash
 touch ./components/MyComponent.module.scss
+```
 
 edit the file, and add the styling:
 
@@ -114,7 +116,7 @@ function HomePage() {
 }
 ```
 
-now you can start your dev server
+now you can start your dev server:
 
 ```bash
 npm run dev
