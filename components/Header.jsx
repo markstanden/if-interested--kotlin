@@ -1,4 +1,4 @@
-import { useScrollPosition } from './getScrollPosition'
+import { useScrollPosition } from '@n8tb1t/use-scroll-position'
 import { useState } from 'react'
 
 function Header(props) {
