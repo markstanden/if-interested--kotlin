@@ -9,13 +9,19 @@ function NavButton(props) {
           right: var(--navButton-position);
           height: var(--navButton-size);
           width: var(--navButton-size);
-          border-radius: 50%;
+          border-top-left-radius: 50%;
           z-index: 105;
           overflow: hidden;
 
-          border: var(--size-border) solid var(--color-primary);
+          border: var(--border-size) solid var(--color-primary);
           box-shadow: 0.5px 0.5px 18px var(--color-shadow);
           background-color: var(--color-background);
+        }
+
+        @media only screen and (min-width: 56.25em) {
+          .navButton {
+            border-radius: 50%;
+          }
         }
 
         .navButton_icon {

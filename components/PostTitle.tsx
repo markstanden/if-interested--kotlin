@@ -8,7 +8,7 @@ const PostTitle: React.FC<PostTitleProps> = ({ children }: PostTitleProps) => {
       {children}
       <style jsx>{`
         .post_title {
-          border-bottom: calc(var(--size-border) / 2) solid var(--color-primary);
+          border-bottom: calc(var(--border-size) / 2) solid var(--color-primary);
         }
       `}</style>
     </h1>

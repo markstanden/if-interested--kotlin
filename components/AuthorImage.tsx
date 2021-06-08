@@ -17,7 +17,7 @@ const AuthorImage: React.FC<AuthorImageProps> = ({ authorName, authorImagePath, 
           width: 75px;
           height: 75px;
           border-radius: 50%;
-          border: var(--size-border) solid var(--color-primary);
+          border: var(--border-size) solid var(--color-primary);
         }
 
         .caption {

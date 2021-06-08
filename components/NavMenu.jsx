@@ -17,7 +17,7 @@ function NavMenu(props) {
             width: 100%;
 
             color: var(--color-primary);
-            background: white;
+            background: var(--nav-gradient);
 
             border-top: var(--nav-border) solid;
 
@@ -84,7 +84,7 @@ function NavMenu(props) {
             }
 
             .navMenu_list {
-              padding: 2.5rem 0 0rem 0;
+              padding: var(--padding-base);
               opacity: 0;
               transition: opacity 0.5s ease-in-out;
               max-width: calc(100% - var(--navButton-size) - 2 * var(--navButton-position));

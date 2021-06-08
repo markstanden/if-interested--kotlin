@@ -2,7 +2,12 @@ function Header(props) {
   return (
     <header className="header">
       <div className="title_block">
-        <h1 className="main_title main_title__top">if (interested){props.language == 'python' ? ':' : '{'}</h1>
+        <span>
+          <h1 className="main_title main_title__top">if (interested){props.language == 'python' ? ':' : '{'}</h1>
+        </span>
+        <span>
+          <h2 className="sub_title"></h2>
+        </span>
       </div>
 
       {props.children}
@@ -14,27 +19,43 @@ function Header(props) {
           .title_block {
             margin-top: 1rem;
             padding-left: 1rem;
-            border-top: var(--size-border) solid var(--color-primary);
+            margin-bottom: 8rem;
           }
 
           .main_title__top {
+            position: fixed;
+            display: inline;
+            top: 0;
+            left: 0;
             margin-top: 0;
             width: max-content;
-            padding: 2rem;
-            border-bottom-left-radius: 1rem;
+            padding: 1rem;
+
             border-bottom-right-radius: 1rem;
-            border: var(--size-border) solid var(--color-primary);
+            border: var(--border-size) solid var(--color-primary);
+            border-left: none;
             border-top: none;
+            box-shadow: 1px 1px 20px var(--color-shadow);
           }
 
           .main_title {
             font-family: var(--font-primary);
-            font-size: 3rem;
+            font-size: var(--header-size);
             font-weight: 300;
 
             text-align: left;
             color: var(--color-primary);
             background-color: var(--color-background);
+          }
+
+          @media only screen and (min-width: 56.25em) {
+            .main_title__top {
+              padding: var(--padding-base);
+
+              border: var(--border-size) solid var(--color-primary);
+              border-bottom-left-radius: 1rem;
+              left: var(--padding-base);
+            }
           }
         `}
       </style>
