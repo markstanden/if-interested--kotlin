@@ -1,9 +1,28 @@
+import { useScrollPosition } from './getScrollPosition'
+import { useState } from 'react'
+
 function Header(props) {
+  const upperThreshold = 100
+
+  const [downPage, setDownPage] = useState(true)
+
+  useScrollPosition(
+    ({ currPos }) => {
+      setDownPage(currPos.y < upperThreshold)
+      console.log(currPos.y)
+    },
+    [downPage],
+    false,
+    false,
+    300
+  )
   return (
     <header className="header">
       <div className="title_block">
         <span>
-          <h1 className="main_title main_title__top">if (interested){props.language == 'python' ? ':' : '{'}</h1>
+          <h1 className={`main_title main_title__top ${downPage ? ' small' : ''}`}>
+            if (interested){props.language == 'python' ? ':' : '{'}
+          </h1>
         </span>
         <span>
           <h2 className="sub_title"></h2>
@@ -46,6 +65,11 @@ function Header(props) {
             text-align: left;
             color: var(--color-primary);
             background-color: var(--color-background);
+          }
+
+          .small {
+            font-size: calc(var(--header-size) * 0.5);
+            padding: 0.4rem 0.8rem 0.4rem 0.8rem;
           }
 
           @media only screen and (min-width: 56.25em) {

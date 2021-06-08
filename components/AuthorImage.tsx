@@ -5,9 +5,11 @@ type AuthorImageProps = {
 }
 
 const AuthorImage: React.FC<AuthorImageProps> = ({ authorName, authorImagePath, postDate }: AuthorImageProps) => {
+  const authorDirectory = '/assets/blog/author'
+
   return (
     <div className="author_image__wrapper">
-      <img src={authorImagePath} alt={authorName} />
+      <img src={authorDirectory + authorImagePath} alt={authorName} />
       <div className="caption">
         <address className="author">{authorName}</address>
         <span className="date">{postDate}</span>

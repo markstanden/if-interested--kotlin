@@ -4,8 +4,6 @@ import matter from 'gray-matter'
 import { MarkdownMeta, MarkdownField, MarkdownPost } from '../types/MarkdownMeta'
 
 const postsDirectory = join(process.cwd(), 'posts')
-const assetsDirectory = '/assets/blog'
-const authorDirectory = '/assets/blog/author'
 
 // get the filenames of the files in the posts directory
 export const getPostSlugs = () => {
@@ -31,10 +29,7 @@ export const getPostBySlug = (slug: String, fields: MarkdownField[]): MarkdownPo
     if (field === 'content') {
       items[field] = content
     }
-    if (field === 'authorImage') {
-      data[field] = authorDirectory + data[field]
-      console.log(data[field] + '   ')
-    }
+
     if (data[field]) {
       items[field] = data[field]
     }

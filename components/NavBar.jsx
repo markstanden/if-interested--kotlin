@@ -8,7 +8,6 @@ function NavBar(props) {
 
   function clickHandler(e) {
     e.preventDefault()
-    console.log('button Clicked', navVisible)
     if (navVisible) {
       setNavVisible(false)
     } else {

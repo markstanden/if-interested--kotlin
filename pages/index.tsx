@@ -23,7 +23,7 @@ const Index = (props: IndexProps) => {
     <>
       <Header language="python"></Header>
 
-      <Preview post={latestPost} darkMode={true} />
+      <Preview post={latestPost} darkMode={false} />
 
       {otherPosts.map((post, index) => (
         <Preview post={post} darkMode={false} />

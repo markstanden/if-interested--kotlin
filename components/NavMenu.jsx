@@ -10,24 +10,19 @@ const NavMenu = props => {
             bottom: 0;
             left: 0;
             width: 100%;
-
-            color: var(--color-primary);
-            background: var(--nav-gradient);
-
-            border-top: var(--nav-border) solid;
-            opacity: 1;
             z-index: -1;
+
+            background: var(--color-primary);
+            border-top: var(--nav-border) solid var(--color-primary);
 
             transform: scaleY(0);
             transform-origin: bottom;
-
             transition: transform 0.45s, z-index 1s, opacity 0.1s;
           }
 
           .navMenu___isVisible {
             box-shadow: -1px -1px 8px var(--color-primary);
             transform: scaleY(1);
-            opacity: 1;
             z-index: 10;
             transition: transform 0.25s, z-index 0.3s, opacity 0.3s;
           }
@@ -47,20 +42,28 @@ const NavMenu = props => {
           }
 
           .navMenu_list_items {
-            padding-top: 1.5vh;
-            font-family: inherit;
+            padding: 1.5vh;
+            margin: var(--margin-base);
             font-size: var(--nav-font-size);
             font-weight: 600;
-            text-shadow: 0.5px 0.5px 10px var(--color-shadow);
+            color: white;
+            border-radius: 0.8rem;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
           }
+          .navMenu {
+          }
+
           .navMenu_list_items :hover {
-            transform: translate(0, -1px);
-            text-shadow: 0.5px 1.5px 15px var(--color-shadow);
+            transform: translate(0, -3px);
+            box-shadow: 0.5px 1.5px 15px var(--color-shadow);
           }
 
           .navMenu_list_items :active {
             transform: translate(0, 0.5px);
-            text-shadow: 0.5px 0px 10px var(--color-shadow);
+            box-shadow: 0.5px 0px 10px var(--color-shadow);
           }
 
           .navMenu___isVisible .navMenu_list {
@@ -69,12 +72,18 @@ const NavMenu = props => {
           }
 
           @media only screen and (min-width: 900px) {
-            .navMenu___isVisible {
+            .navMenu {
+              background: var(--color-primary);
             }
 
             .navMenu_list_items {
-              height: 100%;
-              padding: 0;
+              border: none;
+              background: none;
+              box-shadow: none;
+
+              display: flex;
+              justify-content: center;
+              align-items: center;
             }
 
             .navMenu_list {
@@ -87,6 +96,8 @@ const NavMenu = props => {
               flex-flow: row nowrap;
               flex: 1 0 auto;
               justify-content: space-around;
+              align-items: center;
+              text-align: center;
             }
           }
         `}
