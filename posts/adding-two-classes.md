@@ -4,7 +4,7 @@ excerpt: 'next.js now allows auto importing of css and scss out of the box, whic
 coverImage: '/assets/blog/hello-world/cover.jpg'
 date: '2020-06-16'
 authorName: Mark Standen
-authorPicture: '/assets/blog/authors/tim.jpeg'
+authorImage: '/ms-profile.jpeg'
 ogImageURL: '/assets/blog/hello-world/cover.jpg'
 ---
 

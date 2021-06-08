@@ -1,6 +1,8 @@
 import MarkdownArticle from '../lib/markdownToJsx'
 import { MarkdownPost } from '../types/MarkdownMeta'
 import Container from './Container'
+import AuthorImage from './AuthorImage'
+import PostTitle from './PostTitle'
 
 type PreviewProps = {
   post: MarkdownPost
@@ -10,9 +12,8 @@ const Preview = ({ post }: PreviewProps) => {
   return (
     <Container>
       <div className="preview">
-        <h1>{post.title}</h1>
-        <p>{post.date}</p>
-        <p>{post.authorName}</p>
+        <PostTitle>{post.title}</PostTitle>
+        <AuthorImage authorName={post.authorName} authorImagePath={post.authorImage} postDate={post.date} />
         <MarkdownArticle markdown={post.content} />
       </div>
       <style jsx>

@@ -5,7 +5,7 @@ export type MarkdownMeta = {
   coverImage: string
   date: string
   authorName: string
-  authorPicture?: string
+  authorImage?: string
   ogImageURL?: string
   content: string
 }
