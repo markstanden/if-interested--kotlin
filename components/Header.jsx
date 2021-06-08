@@ -9,7 +9,6 @@ function Header(props) {
   useScrollPosition(
     ({ currPos }) => {
       setDownPage(currPos.y < upperThreshold)
-      console.log(currPos.y)
     },
     [downPage],
     false,
