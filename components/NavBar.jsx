@@ -6,6 +6,11 @@ import NavMenu from './NavMenu'
 function NavBar(props) {
   const [navVisible, setNavVisible] = React.useState(false)
 
+  useEffect(() => {
+    if (navVisible) document.body.style.overflow = 'hidden'
+    else document.body.style.overflow = ''
+  }, [navVisible])
+
   function clickHandler(e) {
     e.preventDefault()
     if (navVisible) {
