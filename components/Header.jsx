@@ -46,7 +46,7 @@ function Header(props) {
             top: 0;
             left: 0;
             margin-top: 0;
-            width: max-content;
+            width: min-content;
             padding: 1rem;
 
             background-color: transparent;
