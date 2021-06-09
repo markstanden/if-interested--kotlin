@@ -2,7 +2,7 @@ import { useScrollPosition } from '@n8tb1t/use-scroll-position'
 import { useState } from 'react'
 
 function Header(props) {
-  const upperThreshold = 100
+  const upperThreshold = 0
 
   const [downPage, setDownPage] = useState(false)
 
@@ -32,6 +32,10 @@ function Header(props) {
 
       <style jsx>
         {`
+          .header {
+            height: var(--header-size);
+          }
+
           .main_title__top {
             position: fixed;
             display: block;
