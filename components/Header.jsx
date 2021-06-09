@@ -40,7 +40,6 @@ function Header(props) {
             top: 0;
             left: 0;
             margin-top: 0;
-            height: fit-content;
             padding: var(--padding-base);
 
             border-bottom: var(--border-size) solid var(--color-primary);
@@ -60,7 +59,7 @@ function Header(props) {
 
           .small {
             font-size: calc(var(--header-size) * 0.5);
-            padding: 0.4rem 0.8rem 0.4rem 0.8rem;
+            padding: 0.4rem 0.4rem 0.4rem 0.4rem;
             width: auto;
             border-bottom-right-radius: 1rem;
             border-right: var(--border-size) solid var(--color-primary);
