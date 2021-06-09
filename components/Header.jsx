@@ -4,7 +4,7 @@ import { useState } from 'react'
 function Header(props) {
   const upperThreshold = 100
 
-  const [downPage, setDownPage] = useState(true)
+  const [downPage, setDownPage] = useState(false)
 
   useScrollPosition(
     ({ currPos }) => {
