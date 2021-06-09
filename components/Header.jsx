@@ -13,7 +13,7 @@ function Header(props) {
     [downPage],
     false,
     false,
-    300
+    500
   )
   return (
     <header className="header">
@@ -42,7 +42,7 @@ function Header(props) {
 
           .main_title__top {
             position: fixed;
-            display: inline;
+            display: inline-block;
             top: 0;
             left: 0;
             margin-top: 0;
