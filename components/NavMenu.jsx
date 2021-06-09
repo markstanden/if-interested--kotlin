@@ -81,6 +81,9 @@ const NavMenu = props => {
               background: none;
               box-shadow: none;
 
+              margin: 0;
+              padding: 0;
+
               display: flex;
               justify-content: center;
               align-items: center;
@@ -88,10 +91,10 @@ const NavMenu = props => {
 
             .navMenu_list {
               padding: var(--padding-base);
+              margin: 0;
               opacity: 0;
               transition: opacity 0.5s ease-in-out;
-              max-width: calc(100% - var(--navButton-size) - 2 * var(--navButton-position));
-
+              max-width: calc(100% - var(--navButton-size) - 2 * (var(--navButton-position) + var(--border-size)));
               height: var(--nav-height);
               flex-flow: row nowrap;
               flex: 1 0 auto;
@@ -111,13 +114,10 @@ const NavMenu = props => {
           <Link href="/latest">Blog</Link>
         </li>
         <li className="navMenu_list_items">
-          <Link href="#">Stack</Link>
-        </li>
-        <li className="navMenu_list_items">
           <Link href="#">Markdown</Link>
         </li>
         <li className="navMenu_list_items">
-          <a href="https://www.github.com/markstanden">Github</a>
+          <a href="https://www.github.com/markstanden/">Github</a>
         </li>
         <li className="navMenu_list_items">
           <Link href="#">Author</Link>

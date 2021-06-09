@@ -49,6 +49,8 @@ function Header(props) {
             width: max-content;
             padding: 1rem;
 
+            background-color: transparent;
+
             border-bottom-right-radius: 1rem;
             border: var(--border-size) solid var(--color-primary);
             border-left: none;
