@@ -2,7 +2,7 @@ import { useScrollPosition } from '@n8tb1t/use-scroll-position'
 import { useState } from 'react'
 
 function Header(props) {
-  const upperThreshold = 100
+  const upperThreshold = 120
 
   const [downPage, setDownPage] = useState(false)
 
@@ -29,7 +29,7 @@ function Header(props) {
         {`
           .main_title {
             width: 100%;
-            margin-bottom: calc(var(--header-size) * 2.3);
+            margin-bottom: calc(var(--header-size) * 2.4);
           }
 
           .main_title__top {
@@ -44,9 +44,6 @@ function Header(props) {
             padding: var(--padding-base);
 
             border-bottom: var(--border-size) solid var(--color-primary);
-            //border-left: none;
-            //border-top: none;
-            box-shadow: 1px 1px 12px var(--color-shadow);
 
             transition: font-size 0.15s;
           }
@@ -64,9 +61,11 @@ function Header(props) {
           .small {
             font-size: calc(var(--header-size) * 0.5);
             padding: 0.4rem 0.8rem 0.4rem 0.8rem;
-            width: fit-content;
+            width: auto;
             border-bottom-right-radius: 1rem;
             border-right: var(--border-size) solid var(--color-primary);
+            box-shadow: 1px 1px 12px var(--color-shadow);
+
             transition: all 0.2s;
           }
 
