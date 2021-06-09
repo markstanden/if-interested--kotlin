@@ -2,7 +2,7 @@ import { useScrollPosition } from '@n8tb1t/use-scroll-position'
 import { useState } from 'react'
 
 function Header(props) {
-  const upperThreshold = 0
+  const upperThreshold = 100
 
   const [downPage, setDownPage] = useState(false)
 
@@ -43,10 +43,9 @@ function Header(props) {
             height: fit-content;
             padding: var(--padding-base);
 
-            border-bottom-right-radius: 1rem;
-            border: var(--border-size) solid var(--color-primary);
-            border-left: none;
-            border-top: none;
+            border-bottom: var(--border-size) solid var(--color-primary);
+            //border-left: none;
+            //border-top: none;
             box-shadow: 1px 1px 12px var(--color-shadow);
 
             transition: font-size 0.15s;
@@ -65,6 +64,10 @@ function Header(props) {
           .small {
             font-size: calc(var(--header-size) * 0.5);
             padding: 0.4rem 0.8rem 0.4rem 0.8rem;
+            width: fit-content;
+            border-bottom-right-radius: 1rem;
+            border-right: var(--border-size) solid var(--color-primary);
+            transition: all 0.2s;
           }
 
           @media only screen and (min-width: 56.25em) {
