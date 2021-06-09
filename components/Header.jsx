@@ -40,7 +40,7 @@ function Header(props) {
             top: 0;
             left: 0;
             margin-top: 0;
-            width: max-content;
+            width: fit-content;
             height: min-content;
             padding: 1rem;
 
