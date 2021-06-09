@@ -55,7 +55,7 @@ function Header(props) {
             border: var(--border-size) solid var(--color-primary);
             border-left: none;
             border-top: none;
-            box-shadow: 1px 1px 12px var(--color-primary);
+            box-shadow: 1px 1px 12px var(--color-shadow);
 
             transition: font-size 0.15s;
           }
