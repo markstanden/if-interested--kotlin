@@ -2,13 +2,14 @@ import { useScrollPosition } from '@n8tb1t/use-scroll-position'
 import { useState } from 'react'
 
 function Header(props) {
-  const upperThreshold = 120
+  const upperThreshold = 0
 
   const [downPage, setDownPage] = useState(false)
 
   useScrollPosition(
     ({ currPos }) => {
       setDownPage(currPos.y < upperThreshold)
+      console.log(currPos)
     },
     [downPage],
     false,
@@ -17,7 +18,7 @@ function Header(props) {
   )
   return (
     <header className="header">
-      <h1 className={`main_title main_title__top ${downPage ? ' small' : ''}`}>
+      <h1 className={`text main_title main_title__top ${downPage ? ' small' : ''}`}>
         if (interested){props.language == 'python' ? ':' : '{'}
       </h1>
 
@@ -29,7 +30,7 @@ function Header(props) {
         {`
           .main_title {
             width: 100%;
-            margin-bottom: calc(var(--header-size) * 2.4);
+            margin-bottom: calc(var(--header-size) * 2.5);
           }
 
           .main_title__top {
@@ -40,7 +41,7 @@ function Header(props) {
             top: 0;
             left: 0;
             margin-top: 0;
-            padding: var(--padding-base);
+            padding: var(--padding-header);
 
             border-bottom: var(--border-size) solid var(--color-primary);
 
@@ -70,11 +71,7 @@ function Header(props) {
 
           @media only screen and (min-width: 56.25em) {
             .main_title__top {
-              padding: var(--padding-base);
-              border: var(--border-size) solid var(--color-primary);
-              border-top: none;
-              border-bottom-left-radius: 1rem;
-              left: var(--padding-base);
+              left: var(--padding-header);
             }
           }
         `}

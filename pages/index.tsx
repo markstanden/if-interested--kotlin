@@ -7,6 +7,7 @@ import { MarkdownPost } from '../types/MarkdownMeta'
 import { getAllPosts } from '../lib/api'
 
 // Frontend Components
+import Head from 'next/head'
 import Header from '../components/Header'
 import NavBar from '../components/NavBar'
 import Preview from '../components/Preview'
@@ -21,6 +22,9 @@ const Index = (props: IndexProps) => {
 
   return (
     <>
+      <Head>
+        <title>if (interested):</title>
+      </Head>
       <Header language="python"></Header>
 
       <Preview post={latestPost} darkMode={false} />

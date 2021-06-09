@@ -20,7 +20,7 @@ function NavButton(props) {
 
         @media only screen and (min-width: 56.25em) {
           .navButton {
-            border-radius: 50%;
+            border-radius: 25%;
           }
         }
 
