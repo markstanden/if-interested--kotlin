@@ -40,11 +40,8 @@ function Header(props) {
             top: 0;
             left: 0;
             margin-top: 0;
-            width: fit-content;
-            height: min-content;
-            padding: 1rem;
-
-            background-color: transparent;
+            height: fit-content;
+            padding: var(--padding-base);
 
             border-bottom-right-radius: 1rem;
             border: var(--border-size) solid var(--color-primary);
