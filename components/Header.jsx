@@ -28,13 +28,12 @@ function Header(props) {
       <style jsx>
         {`
           .main_title {
-            margin-bottom: var(--header-size);
+            width: 100%;
+            margin-bottom: calc(var(--header-size) * 2.3);
           }
 
           .main_title__top {
             white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
 
             position: fixed;
             display: block;
