@@ -30,6 +30,7 @@ const Preview = ({ post, darkMode }: PreviewProps) => {
             align-self: flex-end;
             width: fit-content;
             padding: var(--padding-base);
+            padding-left: 1rem;
             border-bottom-left-radius: 2rem;
             border-bottom: var(--border-size) solid var(--color-primary);
             border-left: var(--border-size) solid var(--color-primary);

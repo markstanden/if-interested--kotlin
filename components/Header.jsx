@@ -17,14 +17,9 @@ function Header(props) {
   )
   return (
     <header className="header">
-      <span>
-        <h1 className={`main_title main_title__top ${downPage ? ' small' : ''}`}>
-          if (interested){props.language == 'python' ? ':' : '{'}
-        </h1>
-      </span>
-      <span>
-        <h2 className="sub_title"></h2>
-      </span>
+      <h1 className={`main_title main_title__top ${downPage ? ' small' : ''}`}>
+        if (interested){props.language == 'python' ? ':' : '{'}
+      </h1>
 
       {props.children}
 
@@ -32,11 +27,15 @@ function Header(props) {
 
       <style jsx>
         {`
-          .header {
+          .main_title {
             height: var(--header-size);
           }
 
           .main_title__top {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
             position: fixed;
             display: block;
             top: 0;
