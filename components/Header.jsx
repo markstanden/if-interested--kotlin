@@ -28,7 +28,7 @@ function Header(props) {
       <style jsx>
         {`
           .main_title {
-            height: var(--header-size);
+            margin-bottom: var(--header-size);
           }
 
           .main_title__top {
@@ -41,7 +41,7 @@ function Header(props) {
             top: 0;
             left: 0;
             margin-top: 0;
-            width: fit-content;
+            width: max-content;
             height: min-content;
             padding: 1rem;
 
