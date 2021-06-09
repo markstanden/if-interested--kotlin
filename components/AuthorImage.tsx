@@ -32,7 +32,7 @@ const AuthorImage: React.FC<AuthorImageProps> = ({ authorName, authorImagePath, 
         .author_image__wrapper {
           display: flex;
           align-items: center;
-          justify-content: flex-start;
+          justify-content: flex-end;
         }
         .author {
           margin-left: 1rem;

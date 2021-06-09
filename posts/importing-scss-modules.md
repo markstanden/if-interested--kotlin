@@ -1,6 +1,6 @@
 ---
-title: 'importing css, sass, scss modules within next.js'
-excerpt: 'next.js now allows auto importing of css and scss out of the box, which is lovely.'
+title: 'Importing CSS, Sass, SCSS modules within next.js'
+excerpt: 'next.js now allows auto importing of CSS and SCSS out of the box!'
 coverImage: '/assets/blog/hello-world/cover.jpg'
 date: '2020-06-17'
 authorName: Mark Standen
@@ -8,7 +8,7 @@ authorImage: '/ms-profile.jpeg'
 ogImageURL: '/assets/blog/hello-world/cover.jpg'
 ---
 
-## next.js now allows auto importing of css and scss out of the box, which is lovely.
+### next.js now allows auto importing of CSS and SCSS out of the box!
 
 The documentation is actually very good, but i struggled to get this working initially, and got it working by googling and trial and error.
 
