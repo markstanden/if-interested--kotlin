@@ -13,7 +13,7 @@ function Header(props) {
     [downPage],
     false,
     false,
-    500
+    300
   )
   return (
     <header className="header">
@@ -54,6 +54,8 @@ function Header(props) {
             border-left: none;
             border-top: none;
             box-shadow: 1px 1px 12px var(--color-primary);
+
+            transition: font-size 0.15s;
           }
 
           .main_title {
