@@ -1,7 +1,7 @@
 // Next.js types
-import { GetStaticProps } from 'next'
+import type { GetStaticProps } from 'next'
 // App types
-import { MarkdownPost } from '../types/MarkdownMeta'
+import type { MarkdownPost } from '../types/MarkdownMeta'
 
 // Backend functions
 import { getAllPosts } from '../lib/api'
