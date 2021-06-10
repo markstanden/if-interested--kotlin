@@ -1,7 +1,15 @@
-function NavButton(props) {
+type NavButtonProps = {
+  clickHandler: (event: React.MouseEvent<HTMLButtonElement>) => void
+  navVisible: boolean
+}
+
+const NavButton: React.FC<NavButtonProps> = ({ clickHandler, navVisible }) => {
   return (
-    <button className="navButton">
-      <div className={`navButton_icon ${props.navVisible ? 'navButton_icon__navVisible' : ''}`} />
+    <>
+      <button onClick={clickHandler} className="navButton">
+        <div className={`navButton_icon ${navVisible ? 'navButton_icon__navVisible' : ''}`} />
+      </button>
+
       <style jsx>{`
         .navButton {
           position: fixed;
@@ -66,7 +74,7 @@ function NavButton(props) {
           transform: rotate(-45deg);
         }
       `}</style>
-    </button>
+    </>
   )
 }
 

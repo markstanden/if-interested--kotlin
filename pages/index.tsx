@@ -10,27 +10,27 @@ import { getAllPosts } from '../lib/api'
 import Head from 'next/head'
 import Header from '../components/Header'
 import NavBar from '../components/NavBar'
-import Preview from '../components/Preview'
+import FullPost from '../components/FullPost'
 
 type IndexProps = {
   posts: MarkdownPost[]
 }
 
-const Index = (props: IndexProps) => {
-  const latestPost = props.posts[0]
-  const otherPosts = props.posts.slice(1)
+const Index: React.FC<IndexProps> = ({ posts }) => {
+  const latestPost = posts[0]
+  const otherPosts = posts.slice(1)
 
   return (
     <>
       <Head>
-        <title>if (interested):</title>
+        <title>if (interested)</title>
       </Head>
       <Header language="python"></Header>
 
-      <Preview post={latestPost} darkMode={false} />
+      <FullPost post={latestPost} darkMode={false} />
 
-      {otherPosts.map((post, index) => (
-        <Preview post={post} darkMode={false} />
+      {otherPosts.map((otherPost, index) => (
+        <FullPost key={index} post={otherPost} darkMode={false} />
       ))}
       <NavBar />
     </>

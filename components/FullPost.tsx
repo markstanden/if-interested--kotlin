@@ -1,25 +1,27 @@
 import MarkdownArticle from '../lib/markdownToJsx'
 import { MarkdownPost } from '../types/MarkdownMeta'
 import Container from './Container'
-import AuthorImage from './AuthorImage'
+import Author from './Author'
 import PostTitle from './PostTitle'
 
-type PreviewProps = {
+type FullPostProps = {
   post: MarkdownPost
   darkMode: boolean
 }
 
-const Preview = ({ post, darkMode }: PreviewProps) => {
+const FullPost: React.FC<FullPostProps> = ({ darkMode, post }) => {
   return (
-    <Container>
-      <div className="preview">
-        <div className="author">
-          <AuthorImage authorName={post.authorName.trim()} authorImagePath={post.authorImage} postDate={post.date} />
-        </div>
-        <PostTitle>{post.title.trim()}</PostTitle>
+    <>
+      <Container>
+        <div className="preview">
+          <div className="author">
+            <Author authorName={post.authorName.trim()} authorImagePath={post.authorImage} postDate={post.date} />
+          </div>
+          <PostTitle>{post.title.trim()}</PostTitle>
 
-        <MarkdownArticle darkMode={darkMode} markdown={post.content} />
-      </div>
+          <MarkdownArticle darkMode={darkMode} markdown={post.content} />
+        </div>
+      </Container>
       <style jsx>
         {`
           .preview {
@@ -37,8 +39,8 @@ const Preview = ({ post, darkMode }: PreviewProps) => {
           }
         `}
       </style>
-    </Container>
+    </>
   )
 }
 
-export default Preview
+export default FullPost

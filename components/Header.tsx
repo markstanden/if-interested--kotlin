@@ -1,30 +1,38 @@
 import { useScrollPosition } from '@n8tb1t/use-scroll-position'
 import { useState } from 'react'
 
-function Header(props) {
+type HeaderProps = {
+  language: string
+}
+
+const Header: React.FC<HeaderProps> = ({ children, language }) => {
   const upperThreshold = 0
 
   const [downPage, setDownPage] = useState(false)
 
+  // Find scroll position of page report if down the page (not at the top)
   useScrollPosition(
     ({ currPos }) => {
       setDownPage(currPos.y < upperThreshold)
       console.log(currPos)
     },
     [downPage],
-    false,
+    this,
     false,
     300
   )
+
   return (
-    <header className="header">
-      <h1 className={`text main_title main_title__top ${downPage ? ' small' : ''}`}>
-        if (interested){props.language == 'python' ? ':' : '{'}
-      </h1>
+    <>
+      <header className="header">
+        <h1 className={`text main_title main_title__top ${downPage ? ' small' : ''}`}>
+          if (interested){language == 'python' ? ':' : '{'}
+        </h1>
 
-      {props.children}
+        {children}
 
-      <p className="main_title">{props.language == 'python' ? '' : '}'}</p>
+        <p className="main_title">{language == 'python' ? '' : '}'}</p>
+      </header>
 
       <style jsx>
         {`
@@ -43,12 +51,6 @@ function Header(props) {
             margin-top: 0;
             padding: var(--padding-header);
 
-            border-bottom: var(--border-size) solid var(--color-primary);
-
-            transition: font-size 0.15s;
-          }
-
-          .main_title {
             font-family: var(--font-primary);
             font-size: var(--header-size);
             font-weight: 300;
@@ -56,6 +58,10 @@ function Header(props) {
             text-align: left;
             color: var(--color-primary);
             background-color: var(--color-background);
+
+            border-bottom: var(--border-size) solid var(--color-primary);
+
+            transition: font-size 0.15s;
           }
 
           .small {
@@ -76,7 +82,7 @@ function Header(props) {
           }
         `}
       </style>
-    </header>
+    </>
   )
 }
 

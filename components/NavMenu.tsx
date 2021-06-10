@@ -1,8 +1,41 @@
 import Link from 'next/link'
 
-const NavMenu = props => {
+type NavMenuProps = {
+  navVisible: boolean
+}
+
+const NavMenu: React.FC<NavMenuProps> = ({ navVisible }) => {
   return (
-    <div className={`navMenu ${props.navVisible ? `navMenu___isVisible` : ''}`}>
+    <>
+      <div className={`navMenu ${navVisible ? 'navMenu___isVisible' : ''}`}>
+        {/* iterates the passed children, and adds them to the navbar as unordered list items */}
+        <ul className="navMenu_list">
+          <li className="navMenu_list_items">
+            <Link href="/">
+              <a>Home</a>
+            </Link>
+          </li>
+          <li className="navMenu_list_items">
+            <Link href="/latest">
+              <a>Blog</a>
+            </Link>
+          </li>
+          <li className="navMenu_list_items">
+            <Link href="#">
+              <a>Markdown</a>
+            </Link>
+          </li>
+          <li className="navMenu_list_items">
+            <a href="https://www.github.com/markstanden/">Github</a>
+          </li>
+          <li className="navMenu_list_items">
+            <Link href="#">
+              <a>Author</a>
+            </Link>
+          </li>
+        </ul>
+      </div>
+
       <style jsx>
         {`
           .navMenu {
@@ -105,25 +138,7 @@ const NavMenu = props => {
           }
         `}
       </style>
-      {/* iterates the passed children, and adds them to the navbar as unordered list items */}
-      <ul className="navMenu_list">
-        <li className="navMenu_list_items">
-          <Link href="/">Home</Link>
-        </li>
-        <li className="navMenu_list_items">
-          <Link href="/latest">Blog</Link>
-        </li>
-        <li className="navMenu_list_items">
-          <Link href="#">Markdown</Link>
-        </li>
-        <li className="navMenu_list_items">
-          <a href="https://www.github.com/markstanden/">Github</a>
-        </li>
-        <li className="navMenu_list_items">
-          <Link href="#">Author</Link>
-        </li>
-      </ul>
-    </div>
+    </>
   )
 }
 export default NavMenu

@@ -1,40 +1,40 @@
-type AuthorImageProps = {
+type AuthorProps = {
   authorName: string
   authorImagePath?: string
   postDate: string
 }
 
-const AuthorImage: React.FC<AuthorImageProps> = ({ authorName, authorImagePath, postDate }: AuthorImageProps) => {
+const Author: React.FC<AuthorProps> = ({ authorName, authorImagePath, postDate }) => {
   const authorDirectory = '/assets/blog/author'
 
   return (
-    <div className="author_image__wrapper">
-      <img src={authorDirectory + authorImagePath} alt={authorName} />
-      <div className="caption">
-        <address className="author">{authorName}</address>
-        <span className="date">{postDate}</span>
+    <div className="author_wrapper">
+      <img className="author_image" src={authorDirectory + authorImagePath} alt={authorName} />
+      <div className="post_caption">
+        <address className="author_name">{authorName}</address>
+        <span className="post_date">{postDate}</span>
       </div>
       <style jsx>{`
-        img {
+        .author_image {
           width: 75px;
           height: 75px;
           border-radius: 50%;
           border: var(--border-size) solid var(--color-primary);
         }
 
-        .caption {
+        .post_caption {
           display: flex;
           flex-direction: column;
           justify-content: space-between;
           align-items: center;
         }
 
-        .author_image__wrapper {
+        .author_wrapper {
           display: flex;
           align-items: center;
           justify-content: flex-end;
         }
-        .author {
+        .author_name {
           margin-left: 1rem;
           font-size: 1rem;
         }
@@ -43,4 +43,4 @@ const AuthorImage: React.FC<AuthorImageProps> = ({ authorName, authorImagePath, 
   )
 }
 
-export default AuthorImage
+export default Author

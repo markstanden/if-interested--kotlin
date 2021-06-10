@@ -1,8 +1,6 @@
 import React from 'react'
 
-type ContainerProps = {
-  children: React.ReactNode
-}
+type ContainerProps = {}
 
 const Container: React.FC<ContainerProps> = ({ children }) => {
   return (

@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 import NavButton from './NavButton'
 import NavMenu from './NavMenu'
 
-function NavBar(props) {
+const NavBar: React.FC = () => {
   const [navVisible, setNavVisible] = React.useState(false)
 
   useEffect(() => {
@@ -11,8 +11,8 @@ function NavBar(props) {
     else document.body.style.overflow = ''
   }, [navVisible])
 
-  function clickHandler(e) {
-    e.preventDefault()
+  const clickHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault()
     if (navVisible) {
       setNavVisible(false)
     } else {
@@ -22,10 +22,8 @@ function NavBar(props) {
 
   return (
     <nav>
-      <div onClick={clickHandler}>
-        <NavButton navVisible={navVisible} />
-      </div>
-      <NavMenu navVisible={navVisible}></NavMenu>
+      <NavButton clickHandler={clickHandler} navVisible={navVisible} />
+      <NavMenu navVisible={navVisible} />
     </nav>
   )
 }
