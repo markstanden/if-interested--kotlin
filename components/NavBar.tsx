@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 import NavButton from './NavButton'
 import NavMenu from './NavMenu'
 
 const NavBar: React.FC = () => {
-  const [navVisible, setNavVisible] = React.useState(false)
+  const [navVisible, setNavVisible] = useState<boolean>(false)
 
   useEffect(() => {
     if (navVisible) document.body.style.overflow = 'hidden'

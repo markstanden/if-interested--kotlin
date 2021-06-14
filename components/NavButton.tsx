@@ -7,7 +7,11 @@ const NavButton: React.FC<NavButtonProps> = ({ clickHandler, navVisible }) => {
   return (
     <>
       <button onClick={clickHandler} className="navButton">
-        <div className={`navButton_icon ${navVisible ? 'navButton_icon__navVisible' : ''}`} />
+        <div
+          className={`navButton_icon ${
+            navVisible ? 'navButton_icon__navVisible' : ''
+          }`}
+        />
       </button>
 
       <style jsx>{`

@@ -15,7 +15,11 @@ const FullPost: React.FC<FullPostProps> = ({ darkMode, post }) => {
       <Container>
         <div className="preview">
           <div className="author">
-            <Author authorName={post.authorName.trim()} authorImagePath={post.authorImage} postDate={post.date} />
+            <Author
+              authorName={post.authorName.trim()}
+              authorImagePath={post.authorImage}
+              postDate={post.date}
+            />
           </div>
           <PostTitle>{post.title.trim()}</PostTitle>
 

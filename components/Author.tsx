@@ -4,12 +4,20 @@ type AuthorProps = {
   postDate: string
 }
 
-const Author: React.FC<AuthorProps> = ({ authorName, authorImagePath, postDate }) => {
+const Author: React.FC<AuthorProps> = ({
+  authorName,
+  authorImagePath,
+  postDate,
+}) => {
   const authorDirectory = '/assets/blog/author'
 
   return (
     <div className="author_wrapper">
-      <img className="author_image" src={authorDirectory + authorImagePath} alt={authorName} />
+      <img
+        className="author_image"
+        src={authorDirectory + authorImagePath}
+        alt={authorName}
+      />
       <div className="post_caption">
         <address className="author_name">{authorName}</address>
         <span className="post_date">{postDate}</span>

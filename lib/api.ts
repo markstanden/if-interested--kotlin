@@ -1,7 +1,11 @@
 import fs from 'fs'
 import { join } from 'path'
 import matter from 'gray-matter'
-import { MarkdownMeta, MarkdownField, MarkdownPost } from '../types/MarkdownMeta'
+import {
+  MarkdownMeta,
+  MarkdownField,
+  MarkdownPost,
+} from '../types/MarkdownMeta'
 
 const postsDirectory = join(process.cwd(), 'posts')
 
@@ -14,7 +18,10 @@ export const getPostSlugs = () => {
   return slugs.filter(slug => slug[0] != '_')
 }
 
-export const getPostBySlug = (slug: String, fields: MarkdownField[]): MarkdownPost => {
+export const getPostBySlug = (
+  slug: String,
+  fields: MarkdownField[],
+): MarkdownPost => {
   const realSlug = slug.replace(/\.md$/, '')
   const fullPath = join(postsDirectory, `${realSlug}.md`)
   const fileContents = fs.readFileSync(fullPath, 'utf8')
@@ -41,6 +48,8 @@ export const getPostBySlug = (slug: String, fields: MarkdownField[]): MarkdownPo
 export const getAllPosts = (fields: MarkdownField[]): MarkdownPost[] => {
   const slugs = getPostSlugs()
   const posts = slugs.map(slug => getPostBySlug(slug, fields))
-  const sortedPosts = posts.sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
+  const sortedPosts = posts.sort((post1, post2) =>
+    post1.date > post2.date ? -1 : 1,
+  )
   return sortedPosts
 }

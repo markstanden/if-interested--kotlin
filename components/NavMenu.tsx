@@ -127,7 +127,10 @@ const NavMenu: React.FC<NavMenuProps> = ({ navVisible }) => {
               margin: 0;
               opacity: 0;
               transition: opacity 0.5s ease-in-out;
-              max-width: calc(100% - var(--navButton-size) - 2 * (var(--navButton-position) + var(--border-size)));
+              max-width: calc(
+                100% - var(--navButton-size) - 2 *
+                  (var(--navButton-position) + var(--border-size))
+              );
               height: var(--nav-height);
               flex-flow: row nowrap;
               flex: 1 0 auto;
