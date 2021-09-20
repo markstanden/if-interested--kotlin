@@ -16,4 +16,4 @@ const PostTitle: React.FC<PostTitleProps> = ({ children }: PostTitleProps) => {
    );
 };
 
-export default PostTitle;
+export { PostTitle };

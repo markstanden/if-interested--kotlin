@@ -1,13 +1,16 @@
 import { useState, useEffect } from 'react';
 
-import NavButton from './NavButton';
-import NavMenu from './NavMenu';
+import { NavButton } from './NavButton';
+import { NavMenu } from './NavMenu';
 
 const NavBar: React.FC = () => {
    const [navVisible, setNavVisible] = useState<boolean>(false);
 
    useEffect(() => {
-      if (navVisible) document.body.style.overflow = 'hidden';
+       if (navVisible) {
+           document.body.style.overflow = 'hidden';
+
+       }
       else document.body.style.overflow = '';
    }, [navVisible]);
 
@@ -28,4 +31,4 @@ const NavBar: React.FC = () => {
    );
 };
 
-export default NavBar;
+export { NavBar };

@@ -144,4 +144,4 @@ const NavMenu: React.FC<NavMenuProps> = ({ navVisible }) => {
       </>
    );
 };
-export default NavMenu;
+export { NavMenu };

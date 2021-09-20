@@ -8,9 +8,11 @@ import { getAllPosts } from '../lib/api';
 
 // Frontend Components
 import Head from 'next/head';
-import Header from '../components/Header';
-import NavBar from '../components/NavBar';
-import FullPost from '../components/FullPost';
+
+import { ContentWrapper } from '../components/ContentWrapper';
+import { Header } from '../components/Header';
+import { NavBar } from '../components/NavBar';
+import { FullPost } from '../components/FullPost';
 
 type IndexProps = {
    posts: MarkdownPost[];
@@ -20,21 +22,29 @@ const Index: React.FC<IndexProps> = ({ posts }) => {
    const latestPost = posts[0];
    const otherPosts = posts.slice(1);
 
-   return (
-      <>
-         <Head>
-            <title>if (interested)</title>
-         </Head>
-         <Header language="python-"></Header>
+    return (
+        <>
+            <Head>
+                <title>if (interested)</title>
+            </Head>
+            <Header language="python-" />
 
-         <FullPost post={latestPost} darkMode={false} />
+            <main>
+                <ContentWrapper>
+                    <FullPost post={latestPost} darkMode={false} />
 
-         {otherPosts.map((otherPost, index) => (
-            <FullPost key={index} post={otherPost} darkMode={false} />
-         ))}
-         <NavBar />
-      </>
-   );
+                    {otherPosts.map((otherPost, index) => (
+                    <FullPost key={index} post={otherPost} darkMode={false} />
+                    ))}
+
+                </ ContentWrapper>
+            </ main>
+
+            <footer>
+                <NavBar />
+            </footer>
+        </>
+    );
 };
 
 export default Index;

@@ -89,5 +89,7 @@ a {
 
     --nav-height: calc(var(--navButton-size) * 1.4);
     --navButton-position: calc((var(--nav-height) - var(--navButton-size) - var(--nav-border)) / 2);
+
+    --content-width: 50rem;
   }
 }

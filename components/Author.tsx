@@ -51,4 +51,4 @@ const Author: React.FC<AuthorProps> = ({
    );
 };
 
-export default Author;
+export { Author };

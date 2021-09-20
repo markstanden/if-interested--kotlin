@@ -1,8 +1,8 @@
 import MarkdownArticle from '../lib/markdownToJsx';
 import { MarkdownPost } from '../types/MarkdownMeta';
-import Container from './Container';
-import Author from './Author';
-import PostTitle from './PostTitle';
+import { Container } from './Container';
+import { Author } from './Author';
+import { PostTitle } from './PostTitle';
 
 type FullPostProps = {
    post: MarkdownPost;
@@ -47,4 +47,4 @@ const FullPost: React.FC<FullPostProps> = ({ darkMode, post }) => {
    );
 };
 
-export default FullPost;
+export { FullPost };

@@ -82,4 +82,4 @@ const NavButton: React.FC<NavButtonProps> = ({ clickHandler, navVisible }) => {
    );
 };
 
-export default NavButton;
+export { NavButton };

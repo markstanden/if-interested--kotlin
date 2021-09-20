@@ -135,4 +135,4 @@ const Header: React.FC<HeaderProps> = ({ language }) => {
     );
 };
 
-export default Header;
+export { Header };
