@@ -1,117 +1,138 @@
-import { useScrollPosition } from '@n8tb1t/use-scroll-position'
-import { useState } from 'react'
-import SearchBar from './SearchBar'
+import { useScrollPosition } from '@n8tb1t/use-scroll-position';
+import { useState } from 'react';
+//import SearchBar from './SearchBar'
 
 type HeaderProps = {
-  language: string
-}
+   language: string;
+};
 
-const Header: React.FC<HeaderProps> = ({ children, language }) => {
-  const upperThreshold = 0
+const Header: React.FC<HeaderProps> = ({ language }) => {
+   const upperThreshold = 0;
 
-  const [downPage, setDownPage] = useState(false)
+   const [downPage, setDownPage] = useState(false);
 
-  // Find scroll position of page report if down the page (not at the top)
-  useScrollPosition(
-    ({ currPos }) => {
-      setDownPage(currPos.y < upperThreshold)
-      console.log(currPos)
-    },
-    [downPage],
-    this,
-    false,
-    300,
-  )
+   // Find scroll position of page report if down the page (not at the top)
+   useScrollPosition(
+      ({ currPos }) => {
+         setDownPage(currPos.y < upperThreshold);
+         console.log(currPos);
+      },
+      [downPage],
+      this,
+      false,
+      300,
+   );
 
-  return (
-    <>
-      <header className="header">
-        ko
-        <div className="text main_title">
-          <h1 className={`main_title__top left ${downPage ? ' small' : ''}`}>
-            if (interested){language == 'python' ? ':' : '{'}
-          </h1>
-          {/* <p className={`main_title__top right ${downPage ? ' small' : ''}`}>
-            <SearchBar />
-          </p> */}
-          <p className="main_title__bottom">
-            {language == 'python' ? '' : '}'}
-          </p>{' '}
-        </div>
-      </header>
+    return (
+        <>
+            <header className="header">
+                <h1 className={`main_title main_title__top top left ${ downPage ? ' small' : ' full'}`} >
+                    if (interested){language == 'python' ? ':' : ' {'}
+                </h1>
+                {/* <p className={`main_title__top top right ${downPage ? ' small' : ''}`}>
+                <SearchBar />
+                </p> */}
+                <p className={`main_title main_title__bottom bottom left ${downPage ? ' small' : ' full'}`}>
+                    {language == 'python' ? '' : '}'}
+                </p>
+            </header>
 
-      <style jsx>
-        {`
-          .FUTURE-main_title {
-            width: 100%;
-            margin-bottom: calc(var(--header-size) * 2.5);
-            border-bottom: 1px solid black;
-            height: calc( 1.5 * var(--header-size));
-             position fixed;
-          }
+            <style jsx> {`
+                .header {
+                    height: calc(var(--header-size) * 1.7);
+                    margin-bottom: 2rem;
+                }
 
-          .left {
-            left: 0;
-            text-align: left;
-          }
+                .main_title {
+                    width: 100%;
+                    white-space: nowrap;
 
-          .right {
-            right: 0;
-            text-align: right;
-          }
+                    position: fixed;
+                    display: block;
 
-          .main_title__top {
-            width: 100%;
-            white-space: nowrap;
+                    padding: var(--padding-header);
 
-            position: fixed;
-            display: block;
-            top: 0;
+                    font-family: var(--font-primary);
+                    font-size: var(--header-size);
+                    font-weight: 300;
 
-            margin-top: 0;
-            padding: var(--padding-header);
+                    color: var(--color-primary);
+                    background-color: var(--color-background);
 
-            font-family: var(--font-primary);
-            font-size: var(--header-size);
-            font-weight: 300;
+                    transition: font-size 0.15s;
+                }
 
-            color: var(--color-primary);
-            background-color: var(--color-background);
 
-            border-bottom: var(--border-size) solid var(--color-primary);
+                .left {
+                    left: 0;
+                    text-align: left;
+                    border-right: var(--border-size) solid var(--color-primary);
+                }
 
-            transition: font-size 0.15s;
-          }
+                .right {
+                    right: 0;
+                    text-align: right;
+                    border-left: var(--border-size) solid var(--color-primary);
+                }
 
-          .small {
-            font-size: calc(var(--header-size) * 0.5);
-            padding: 0.4rem 0.4rem 0.4rem 0.4rem;
-            width: auto;
+                .top {
+                    top: 0;
+                    margin-top: 0;
+                    border-bottom: var(--border-size) solid var(--color-primary);
+                }
 
-            box-shadow: 1px 1px 12px var(--color-shadow);
+                .bottom{
+                    bottom: 0;
+                    margin-bottom:0;
+                    border-top: var(--border-size) solid var(--color-primary);
+                }
 
-            transition: all 0.2s;
-          }
+                .bottom.left {
+                    border-top-right-radius: 1rem;
+                    width: auto;
+                }
 
-          .small.left {
-            border-bottom-right-radius: 1rem;
-            border-right: var(--border-size) solid var(--color-primary);
-          }
+                .top.left {
+                    border-bottom-right-radius: 1rem;
+                }
 
-          .small.right {
-            border-bottom-left-radius: 1rem;
-            border-left: var(--border-size) solid var(--color-primary);
-          }
+                .full {
+                    box-shadow: none;
+                }
 
-          @media only screen and (min-width: 56.25em) {
-            .main_title__top {
-              left: var(--padding-header);
-            }
-          }
-        `}
-      </style>
-    </>
-  )
-}
+                .small {
+                    font-size: calc(var(--header-size) * 0.5);
+                    padding: 0.4rem 0.6rem 0.4rem 0.4rem;
+                    width: auto;
 
-export default Header
+                    box-shadow: 1px 1px 12px var(--color-shadow);
+
+                    transition: all 0.2s;
+                }
+
+                .small.left.top {
+                    border-bottom-right-radius: 1rem;
+                    border-right: var(--border-size) solid var(--color-primary);
+                }
+
+                .small.left.bottom {
+                    border-right: var(--border-size) solid var(--color-primary);
+                }
+
+                .small.right.top {
+                    border-bottom-left-radius: 1rem;
+                    border-left: var(--border-size) solid var(--color-primary);
+                }
+
+                @media only screen and (min-width: 56.25em) {
+                    .main_title {
+                        left: var(--padding-header);
+                    }
+                }
+
+            `} </style>
+        </>
+    );
+};
+
+export default Header;
