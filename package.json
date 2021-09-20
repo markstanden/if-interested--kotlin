@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint . --ext .ts --ext .tsx",
-    "prettier-format": "prettier --config .prettierrc.json '**/*.ts*' --write"
+    "prettier-format": "prettier --config .prettierrc './**/*.ts*' --write"
   },
   "dependencies": {
     "@n8tb1t/use-scroll-position": "^2.0.3",
