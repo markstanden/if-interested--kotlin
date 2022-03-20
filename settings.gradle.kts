@@ -1,1 +1,1 @@
-rootProject.name = "if-interested-api"
+rootProject.name = "if-interested"
