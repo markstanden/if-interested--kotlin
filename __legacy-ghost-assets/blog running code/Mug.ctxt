@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=Mug
+comment0.text=\n\ Write\ a\ description\ of\ class\ Mug\ here.\n\n\ @author\ (your\ name)\n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=constructionMaterial\ height\ width
+comment1.target=Mug(java.lang.String,\ int,\ int)
+comment2.params=
+comment2.target=int\ getHeight()
+comment3.params=
+comment3.target=int\ getWidth()
+comment4.params=
+comment4.target=java.lang.String\ getConstructionMaterial()
+numComments=5
