@@ -19,7 +19,7 @@ class ApplicationTest : AnnotationSpec() {
             client.get("/").apply {
                 assertEquals(HttpStatusCode.OK, status)
                 assertContains("if(interested)", bodyAsText())
-                bodyAsText().basePageTests()
+                //bodyAsText().basePageTests()
             }
         }
 }
