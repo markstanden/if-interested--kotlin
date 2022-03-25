@@ -1,6 +1,6 @@
 package com.ifinterested.templates
 
-import com.ifinterested.initialise
+import com.ifinterested.models.BlogPost
 import io.ktor.server.html.*
 import kotlinx.html.HTML
 import kotlinx.html.body
@@ -9,10 +9,7 @@ import kotlinx.html.link
 import kotlinx.html.meta
 import kotlinx.html.title
 
-class PageLayout : Template<HTML> {
-    val headerSection = TemplatePlaceholder<HeaderTemplate>()
-    val blogSection = TemplatePlaceholder<BlogTemplate>()
-    val posts = initialise()
+class PageLayout(val posts: List<BlogPost>) : Template<HTML> {
 
     override fun HTML.apply() {
         head {
@@ -28,8 +25,8 @@ class PageLayout : Template<HTML> {
             title("if(interested)")
         }
         body {
-            insert(HeaderTemplate(), headerSection)
-            insert(BlogTemplate(posts), blogSection)
+            insert(HeaderTemplate(), TemplatePlaceholder())
+            insert(BlogTemplate(posts), TemplatePlaceholder())
         }
     }
 }

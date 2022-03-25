@@ -6,6 +6,7 @@ import io.ktor.server.application.*
 import io.ktor.server.html.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
+import jdk.incubator.vector.VectorOperators
 
 fun Application.posts() {
     routing {
@@ -15,14 +16,7 @@ fun Application.posts() {
         route("posts") {
             get {
                 val posts = initialise()
-                call.respondHtmlTemplate(PageLayout()) {
-                    headerSection {
-                        pageTitle { +"if(interested)..." }
-                    }
-                    blogSection {
-                        posts
-                    }
-                }
+                call.respondHtmlTemplate(PageLayout(posts)) {}
             }
         }
     }
