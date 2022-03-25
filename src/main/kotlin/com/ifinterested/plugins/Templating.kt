@@ -10,11 +10,14 @@ fun Application.configureTemplating() {
         get("/apost") {
             call.respondHtmlTemplate(PageLayout()) {
                 headerSection {
-                    pageTitle { +"if(interested)..." }
-                }
-                blogPost {
-                    postTitle { +"Post Title" }
-                    postBody { +"Post Body" }
+                    pageTitle {
+                        +"if(interested)..."
+                    }
+                    blogSection{
+                        blogPost {
+
+                        }
+                    }
                 }
             }
         }
