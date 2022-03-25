@@ -1,5 +1,6 @@
 package com.ifinterested.plugins
 
+import com.ifinterested.initialise
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*
 import io.ktor.server.plugins.*
@@ -12,8 +13,9 @@ fun Application.configureSerialization() {
     }
 
     routing {
-        get("/json/kotlinx-serialization") {
-            call.respond(mapOf("hello" to "world"))
+        get("/json") {
+
+            call.respond(initialise())
         }
     }
 }

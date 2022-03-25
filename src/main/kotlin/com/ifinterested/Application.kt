@@ -10,5 +10,7 @@ fun main() {
         configureSecurity()
         configureTemplating()
         configureSerialization()
+
+
     }.start(wait = true)
 }

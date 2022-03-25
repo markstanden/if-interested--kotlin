@@ -1,15 +1,18 @@
 package com.ifinterested.plugins
 
+import com.ifinterested.routing.posts
 import io.ktor.server.application.*
-import io.ktor.server.locations.*
-import io.ktor.server.response.*
+import io.ktor.server.http.content.*
 import io.ktor.server.routing.*
-import io.ktor.server.routing.get
+import java.io.File
 
 fun Application.configureRouting() {
     routing {
-        get("/") {
-            call.respondText("if(interested)")
+        staticRootFolder = File("static")
+        static("authors") {
+            files("authors")
         }
+
+        posts()
     }
 }

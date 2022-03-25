@@ -9,9 +9,12 @@ fun Application.configureTemplating() {
     routing {
         get("/apost") {
             call.respondHtmlTemplate(PageLayout()) {
+                headerSection {
+                    pageTitle { +"if(interested)..." }
+                }
                 blogPost {
-                    postTitle { +"Test Title" }
-                    postBody { +"Test Body" }
+                    postTitle { +"Post Title" }
+                    postBody { +"Post Body" }
                 }
             }
         }
