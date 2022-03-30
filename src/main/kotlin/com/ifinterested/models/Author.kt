@@ -3,7 +3,6 @@ package com.ifinterested.models
 import kotlinx.serialization.Serializable
 import java.util.concurrent.atomic.AtomicInteger
 
-@Serializable
 class Author private constructor(
         val authorID: Int,
         val name: String,

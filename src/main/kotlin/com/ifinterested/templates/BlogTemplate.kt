@@ -1,21 +1,27 @@
 package com.ifinterested.templates
 
 import com.ifinterested.models.BlogPost
-import io.ktor.server.html.*
-import kotlinx.html.FlowContent
+import kotlinx.html.BODY
+import kotlinx.html.article
+import kotlinx.html.h2
 import kotlinx.html.section
 
-class BlogTemplate(val posts: List<BlogPost>) : Template<FlowContent> {
-    val blogPost = TemplatePlaceholder<PostTemplate>()
+fun BODY.blogPosts(posts: List<BlogPost>) =
+    section {
+        posts.forEach {
+            article {
+//                apply { createPost(postTitle = it.title, postBody = it.body) }
+                section("title-section") {
+                    h2(classes = "post-title") {
+                        +it.title
+                    }
+                }
+                section(classes = "post-body") {
+                    it.body.forEach {
+                        apply(it)
+                    }
+                }
 
-    override fun FlowContent.apply() {
-        section {
-            posts.forEach {
-                insert(PostTemplate(
-                        postTitle = it.title,
-                        postBody = it.body
-                ), blogPost)
             }
         }
     }
-}
