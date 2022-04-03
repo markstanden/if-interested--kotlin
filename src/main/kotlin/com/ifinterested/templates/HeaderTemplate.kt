@@ -1,16 +1,17 @@
 package com.ifinterested.templates
 
+import io.ktor.server.html.*
+import kotlinx.html.BODY
 import kotlinx.html.h1
 import kotlinx.html.header
-import kotlinx.html.stream.createHTML
 
-fun addHeader() =
-    createHTML().header(classes = "page-header") {
-        addLogo()
+class HeaderTemplate : Template<BODY> {
+    val pageTitle: String = "if(interested)"
+    override fun BODY.apply() {
+        header(classes = "page-header") {
+            h1(classes = "page-title") {
+                +pageTitle
+            }
+        }
     }
-
-
-fun addLogo(pageTitle: String = "if(interested)") =
-    createHTML().h1(classes = "page-title") {
-        +pageTitle
-    }
+}

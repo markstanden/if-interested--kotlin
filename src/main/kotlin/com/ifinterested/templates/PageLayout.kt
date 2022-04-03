@@ -1,16 +1,18 @@
 package com.ifinterested.templates
 
-import kotlinx.html.BODY
+import io.ktor.server.html.*
+import kotlinx.html.HTML
+import kotlinx.html.article
 import kotlinx.html.body
 import kotlinx.html.head
-import kotlinx.html.html
+import kotlinx.html.header
 import kotlinx.html.link
 import kotlinx.html.meta
-import kotlinx.html.stream.createHTML
 import kotlinx.html.title
 
-fun pageLayout(pageContent: BODY.() -> Unit) =
-    createHTML(true).html {
+class PageLayout : Template<HTML> {
+    val pageContent = TemplatePlaceholder<PostTemplate>()
+    override fun HTML.apply() {
         head {
             meta {
                 charset = "UTF-8"
@@ -24,7 +26,10 @@ fun pageLayout(pageContent: BODY.() -> Unit) =
             title("if(interested)")
         }
         body {
-            addHeader()
-            pageContent()
+            insert(HeaderTemplate(), TemplatePlaceholder())
+            article {
+                insert(PostTemplate(), pageContent)
+            }
         }
     }
+}

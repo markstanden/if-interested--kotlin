@@ -1,13 +1,5 @@
 package com.ifinterested.models
 
-import kotlinx.html.SECTION
-import kotlinx.html.p
-import kotlinx.html.pre
+data class PostElement(val type: ValidPostElement, val content: String)
 
-typealias PostElement = SECTION.() -> Unit
-
-fun paragraph(text: String): PostElement =
-    { p { +text } }
-
-fun code(code: String): PostElement =
-    { pre { +code } }
+enum class ValidPostElement { PARAGRAPH, CODE }

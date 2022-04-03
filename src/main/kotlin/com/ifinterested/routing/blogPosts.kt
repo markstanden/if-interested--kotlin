@@ -1,13 +1,12 @@
 package com.ifinterested.routing
 
 import com.ifinterested.initialise
-import com.ifinterested.templates.blogPosts
-import com.ifinterested.templates.pageLayout
+import com.ifinterested.templates.PageLayout
 import io.ktor.server.application.*
 import io.ktor.server.html.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
-import kotlinx.html.unsafe
+import kotlinx.html.article
 
 fun Application.posts() {
     routing {
@@ -15,11 +14,10 @@ fun Application.posts() {
             call.respondRedirect("posts")
         }
         get("posts") {
-            call.respondHtml {
-                unsafe {
-                    +pageLayout {
-                        blogPosts(initialise())
-                    }
+            call.respondHtmlTemplate(PageLayout()) {
+                pageContent {
+                    postTitle { +initialise().first().title }
+                    postBody { article { +"test" } }
                 }
             }
         }

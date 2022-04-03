@@ -1,6 +1,5 @@
 package com.ifinterested.models
 
-import kotlinx.serialization.Serializable
 import java.util.concurrent.atomic.AtomicInteger
 
 class Author private constructor(
@@ -14,10 +13,6 @@ class Author private constructor(
         private val atomicID = AtomicInteger()
 
         fun create(name: String, bio: String, imagePath: String, since: Date = Date()) =
-            Author(authorID = atomicID.getAndIncrement(),
-                   name = name,
-                   bio = bio,
-                   imagePath = imagePath,
-                   since = since)
+            Author(authorID = atomicID.getAndIncrement(), name = name, bio = bio, imagePath = imagePath, since = since)
     }
 }
