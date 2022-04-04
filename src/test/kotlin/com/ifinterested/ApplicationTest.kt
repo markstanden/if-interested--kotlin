@@ -7,11 +7,11 @@ import io.ktor.http.*
 import io.ktor.server.testing.*
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
-import org.junit.Test
+import org.junit.jupiter.api.Test
 import kotlin.test.assertContains
 
-
-class ApplicationTest {
+class RouteTesting {
+    @Test
     private fun testClient(route: String = "/", test: suspend (HttpResponse) -> Unit) {
         testApplication {
             application {
@@ -23,22 +23,32 @@ class ApplicationTest {
     }
 
     @Test
-    fun `Check root status returns OK`() {
-        testClient("/") { assert(it.status == HttpStatusCode.OK) }
+    fun String.checkStatus() {
+        testClient(this) { assert(it.status == HttpStatusCode.OK) }
     }
 
     @Test
-    fun `Check root route renders site name`() {
-        testClient("/") { assertContains(it.bodyAsText(), "if(interested)") }
+    fun String.checkTextRendered(name: String) {
+        testClient(this) { assertContains(it.bodyAsText(), name) }
     }
 
     @Test
-    fun `Check post route status returns OK`() {
-        testClient("/posts") { assert(it.status == HttpStatusCode.OK) }
+    fun `Check route status returns OK`() {
+        "/".checkStatus()
     }
 
     @Test
-    fun `Check post route renders site name`() {
-        testClient("/posts") { assertContains(it.bodyAsText(), "if(interested)") }
+    fun `Check route renders site name`() {
+        "/".checkTextRendered("if(interested)")
+    }
+
+    @Test
+    fun `Check posts route status returns OK`() {
+        "/posts".checkStatus()
+    }
+
+    @Test
+    fun `Check posts route renders site name`() {
+        "/posts".checkTextRendered("if(interested)")
     }
 }
