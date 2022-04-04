@@ -43,7 +43,7 @@ class RouteTesting {
         }
 
         @Ignore("Still working on templating")
-        //@Test
+        @Test
         fun `check route has basic elements expected from a page`() {
            testClient(route) { it.bodyAsText().basePageTests() }
         }

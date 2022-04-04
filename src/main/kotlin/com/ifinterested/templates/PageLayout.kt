@@ -4,13 +4,13 @@ import io.ktor.server.html.*
 import kotlinx.html.HTML
 import kotlinx.html.article
 import kotlinx.html.body
+import kotlinx.html.footer
 import kotlinx.html.head
-import kotlinx.html.header
 import kotlinx.html.lang
 import kotlinx.html.link
+import kotlinx.html.main
 import kotlinx.html.meta
 import kotlinx.html.title
-import org.apache.http.client.methods.RequestBuilder.head
 
 class PageLayout : Template<HTML> {
     val pageContent = TemplatePlaceholder<PostTemplate>()
@@ -30,9 +30,12 @@ class PageLayout : Template<HTML> {
         }
         body {
             insert(HeaderTemplate(), TemplatePlaceholder())
-            article {
-                insert(PostTemplate(), pageContent)
+            main {
+                article {
+                    insert(PostTemplate(), pageContent)
+                }
             }
+            footer { +"Footer here" }
         }
     }
 }
