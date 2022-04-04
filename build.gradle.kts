@@ -1,7 +1,6 @@
 val ktor_version: String by project
 val kotlin_version: String by project
 val logback_version: String by project
-val kotest_version: String by project
 
 
 plugins {
@@ -42,9 +41,6 @@ dependencies {
     implementation("org.jetbrains:markdown:0.3.1")
     testImplementation("io.ktor:ktor-server-tests-jvm:$ktor_version")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
-    testImplementation("io.kotest:kotest-runner-junit5:$kotest_version")
-    testImplementation ("io.kotest:kotest-assertions-core:$kotest_version")
-    testImplementation ("io.kotest:kotest-property:$kotest_version")
 
 }
 
@@ -54,9 +50,5 @@ tasks {
         manifest {
             attributes(Pair("Main-Class", "dev.markstanden.restAPI.ApplicationKt"))
         }
-    }
-
-    withType<Test>().configureEach {
-        useJUnitPlatform()
     }
 }
