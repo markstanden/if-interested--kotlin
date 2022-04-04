@@ -1,18 +1,17 @@
 package com.ifinterested
 
-import kotlin.test.Test
-import kotlin.test.assertContains
+import org.junit.jupiter.api.Test
 
 @Test
 fun String.basePageTests() {
-    assertContains(this, """<html lang="en">""", false, "Returned page should contain an opening html tag")
-    assertContains(this, "</html>", false, "Returned page should contain a closing html tag")
-    assertContains(this, "<head", false, "Returned page should contain an opening head tag")
-    assertContains(this, "</head>", false, "Returned page should contain a closing head tag")
-    assertContains(this, "<header", false, "Returned page should contain an opening header tag")
-    assertContains(this, "</header>", false, "Returned page should contain a closing header tag")
-    assertContains(this, "<main", false, "Returned page should contain an opening main tag")
-    assertContains(this, "</main>", false, "Returned page should contain a closing main tag")
-    assertContains(this, "<footer", false, "Returned page should contain an opening footer tag")
-    assertContains(this, "</footer>", false, "Returned page should contain a closing footer tag")
+    assert(this.contains("""<html lang="en">""")) { "Returned page should contain an opening html tag" }
+    assert(this.contains("</html>")) { "Returned page should contain a closing html tag" }
+    assert(this.contains("<head")) { "Returned page should contain an opening head tag" }
+    assert(this.contains("</head>")) { "Returned page should contain a closing head tag" }
+    assert(this.contains("<header")) { "Returned page should contain an opening header tag" }
+    assert(this.contains("</header>")) { "Returned page should contain a closing header tag" }
+    assert(this.contains("<main")) { "Returned page should contain an opening main tag" }
+    assert(this.contains("</main>")) { "Returned page should contain a closing main tag" }
+    assert(this.contains("<footer")) { "Returned page should contain an opening footer tag" }
+    assert(this.contains("</footer>")) { "Returned page should contain a closing footer tag" }
 }

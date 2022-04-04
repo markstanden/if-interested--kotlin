@@ -39,10 +39,8 @@ dependencies {
     implementation("io.ktor:ktor-server-cio-jvm:$ktor_version")
     implementation("ch.qos.logback:logback-classic:$logback_version")
     implementation("org.jetbrains:markdown:0.3.1")
-    implementation("org.junit.jupiter:junit-jupiter:5.8.2")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.8.2")
     testImplementation("io.ktor:ktor-server-tests-jvm:$ktor_version")
-    testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
-
 }
 
 
@@ -51,5 +49,9 @@ tasks {
         manifest {
             attributes(Pair("Main-Class", "dev.markstanden.restAPI.ApplicationKt"))
         }
+    }
+
+    test {
+        testLogging.showExceptions = true
     }
 }

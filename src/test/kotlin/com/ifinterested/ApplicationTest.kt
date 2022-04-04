@@ -7,11 +7,11 @@ import io.ktor.http.*
 import io.ktor.server.testing.*
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
+import org.junit.Ignore
+import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
-import kotlin.test.assertContains
 
 class RouteTesting {
-    @Test
     private fun testClient(route: String = "/", test: suspend (HttpResponse) -> Unit) {
         testApplication {
             application {
@@ -22,33 +22,36 @@ class RouteTesting {
         }
     }
 
-    @Test
-    fun String.checkStatus() {
+    private fun String.checkStatus() {
         testClient(this) { assert(it.status == HttpStatusCode.OK) }
     }
 
-    @Test
-    fun String.checkTextRendered(name: String) {
-        testClient(this) { assertContains(it.bodyAsText(), name) }
+    private fun String.checkTextRendered(name: String) {
+        testClient(this) { assert(it.bodyAsText().contains(name)) }
     }
 
-    @Test
-    fun `Check route status returns OK`() {
-        "/".checkStatus()
+
+    abstract inner class AllRoutes(val route : String = "/") {
+        @Test
+        fun `Check route status returns OK`() {
+            route.checkStatus()
+        }
+
+        @Test
+        fun `Check route renders site name`() {
+            route.checkTextRendered("if(interested)")
+        }
+
+        @Ignore("Still working on templating")
+        //@Test
+        fun `check route has basic elements expected from a page`() {
+           testClient(route) { it.bodyAsText().basePageTests() }
+        }
     }
 
-    @Test
-    fun `Check route renders site name`() {
-        "/".checkTextRendered("if(interested)")
-    }
+    @Nested
+    inner class `root route` : AllRoutes("/")
 
-    @Test
-    fun `Check posts route status returns OK`() {
-        "/posts".checkStatus()
-    }
-
-    @Test
-    fun `Check posts route renders site name`() {
-        "/posts".checkTextRendered("if(interested)")
-    }
+    @Nested
+    inner class `posts route` : AllRoutes("/posts")
 }
