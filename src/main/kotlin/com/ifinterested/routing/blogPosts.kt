@@ -15,9 +15,15 @@ fun Application.posts() {
         }
         get("posts") {
             call.respondHtmlTemplate(PageLayout()) {
+                headerContent {
+                    title {+"if(interested)"}
+                }
                 pageContent {
                     postTitle { +initialise().first().title }
-                    postBody { article { +"test" } }
+                    postBody { article { +initialise().first().body.first().content } }
+                }
+                footerContent {
+                    title {+"if(interested)"}
                 }
             }
         }

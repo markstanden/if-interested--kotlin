@@ -4,8 +4,8 @@ import io.ktor.server.html.*
 import kotlinx.html.HTML
 import kotlinx.html.article
 import kotlinx.html.body
-import kotlinx.html.footer
 import kotlinx.html.head
+import kotlinx.html.hr
 import kotlinx.html.lang
 import kotlinx.html.link
 import kotlinx.html.main
@@ -13,7 +13,10 @@ import kotlinx.html.meta
 import kotlinx.html.title
 
 class PageLayout : Template<HTML> {
+    val headerContent = TemplatePlaceholder<HeaderTemplate>()
     val pageContent = TemplatePlaceholder<PostTemplate>()
+    val footerContent = TemplatePlaceholder<FooterTemplate>()
+
     override fun HTML.apply() {
         lang = "en"
         head {
@@ -26,16 +29,18 @@ class PageLayout : Template<HTML> {
                 href = "/styles"
                 rel = "stylesheet"
             }
-            title("if(interested)")
+            title("if(interested){}")
         }
         body {
-            insert(HeaderTemplate(), TemplatePlaceholder())
+            insert(HeaderTemplate(), headerContent)
+            hr {}
             main {
                 article {
                     insert(PostTemplate(), pageContent)
                 }
             }
-            footer { +"Footer here" }
+            hr {}
+            insert(FooterTemplate(), footerContent)
         }
     }
 }
