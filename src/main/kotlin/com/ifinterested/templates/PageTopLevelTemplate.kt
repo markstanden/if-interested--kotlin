@@ -1,8 +1,9 @@
 package com.ifinterested.templates
 
+import com.ifinterested.models.BlogPost
 import io.ktor.server.html.*
 import kotlinx.html.HTML
-import kotlinx.html.article
+import kotlinx.html.MAIN
 import kotlinx.html.body
 import kotlinx.html.head
 import kotlinx.html.hr
@@ -12,9 +13,9 @@ import kotlinx.html.main
 import kotlinx.html.meta
 import kotlinx.html.title
 
-class PageLayout : Template<HTML> {
+class PageTopLevelTemplate(val posts: List<BlogPost>) : Template<HTML> {
     val headerContent = TemplatePlaceholder<HeaderTemplate>()
-    val pageContent = TemplatePlaceholder<PostTemplate>()
+    val pageContent = TemplatePlaceholder<Template<MAIN>>()
     val footerContent = TemplatePlaceholder<FooterTemplate>()
 
     override fun HTML.apply() {
@@ -25,19 +26,21 @@ class PageLayout : Template<HTML> {
                 content = "width=device-width, initial-scale=1.0"
                 name = "viewport"
             }
+            meta {
+                name = "description"
+                content = "Personal blog, written in Kotlin. About coding - mostly about kotlin - for people who love Kotlin as much as me!"
+            }
             link {
-                href = "/styles"
+                href = "/styles/globals.css"
                 rel = "stylesheet"
             }
-            title("if(interested){}")
+            title("if(interested) : Kotlin focused development blog.")
         }
         body {
             insert(HeaderTemplate(), headerContent)
             hr {}
             main {
-                article {
-                    insert(PostTemplate(), pageContent)
-                }
+                insert(if (posts.size == 1) SinglePostTemplate(posts) else MultiPostTemplate(posts), pageContent)
             }
             hr {}
             insert(FooterTemplate(), footerContent)
