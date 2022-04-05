@@ -1,10 +1,13 @@
 package com.ifinterested
 
 import com.ifinterested.models.BlogPost
+import com.ifinterested.models.BlogPost.Companion.asID
+import com.ifinterested.models.BlogPost.Companion.asURL
 import com.ifinterested.models.Date
 import com.ifinterested.models.PostElement
 import com.ifinterested.models.ValidPostElement
-import com.ifinterested.routing.posts
+import com.ifinterested.routing.singlePost
+import com.ifinterested.routing.staticFiles
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
 import io.ktor.http.*
@@ -20,11 +23,17 @@ class SinglePostTests {
                                                              PostElement(ValidPostElement.PARAGRAPH,
                                                                          "Second Paragraph")), authorID = 1,
                         date = Date(2022, 1, 1))
+    val postURL = "/posts/${testPost.date.asID()}/${testPost.title.asURL()}/"
+
 
     private fun testClient(route: String, test: suspend (HttpResponse) -> Unit) {
         testApplication {
-            application { posts(listOf(testPost)) }
-            runBlocking { launch { test(client.get(route)) } }
+            application {
+                staticFiles()
+                singlePost(listOf(testPost))
+            }
+            val res = client.get(route)
+            runBlocking { launch { test(res) } }
         }
     }
 
@@ -38,26 +47,26 @@ class SinglePostTests {
 
     @Test
     fun `check single post status ok`() {
-        "/posts/${testPost.postID}".checkStatus()
+        postURL.checkStatus()
     }
 
     @Test
     fun `check single post displays title`() {
-        "/posts/${testPost.postID}".checkTextRendered("Single Post")
+        postURL.checkTextRendered("Single Post")
     }
 
     @Test
-    fun `check single post displays first para`() {
-        "/posts/${testPost.postID}".checkTextRendered("First Paragraph")
+    fun `check single post displays first paragraph text`() {
+        postURL.checkTextRendered("First Paragraph")
     }
 
     @Test
     fun `check single post displays code block`() {
-        "/posts/${testPost.postID}".checkTextRendered("val code = code()")
+        postURL.checkTextRendered("val code = code()")
     }
 
     @Test
-    fun `check single post displays second para`() {
-        "/posts/${testPost.postID}".checkTextRendered("Second Paragraph")
+    fun `check single post displays second paragraph text`() {
+        postURL.checkTextRendered("Second Paragraph")
     }
 }

@@ -4,6 +4,7 @@ import com.ifinterested.models.BlogPost
 import com.ifinterested.models.ValidPostElement
 import io.ktor.server.html.*
 import kotlinx.html.FlowContent
+import kotlinx.html.a
 import kotlinx.html.article
 import kotlinx.html.classes
 import kotlinx.html.h2
@@ -24,6 +25,10 @@ class MultiPostTemplate(val posts: List<BlogPost>) : Template<FlowContent> {
                         title = "post title"
                         h2(classes = "post-title") {
                             +it.title
+                        }
+                        a {
+                            href = "/posts/${it.asURL()}"
+                            +it.asURL()
                         }
                     }
                     section(classes = "post-body") {
