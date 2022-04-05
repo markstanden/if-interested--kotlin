@@ -31,7 +31,7 @@ class RouteTesting {
     }
 
 
-    abstract inner class AllRoutes(val route : String = "/") {
+    abstract inner class AllRoutes(val route: String = "/") {
         @Test
         fun `Check route status returns OK`() {
             route.checkStatus()
@@ -45,7 +45,7 @@ class RouteTesting {
         @Ignore("Still working on templating")
         @Test
         fun `check route has basic elements expected from a page`() {
-           testClient(route) { it.bodyAsText().basePageTests() }
+            testClient(route) { it.bodyAsText().basePageTests() }
         }
     }
 

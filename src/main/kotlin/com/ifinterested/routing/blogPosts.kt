@@ -14,7 +14,7 @@ fun Application.posts(posts: List<BlogPost>) {
             call.respondRedirect("posts")
         }
         get("posts") {
-            call.respondHtmlTemplate(PageTopLevelTemplate(initialise())) {
+            call.respondHtmlTemplate(PageTopLevelTemplate(posts)) {
                 headerContent {
                     title { +"if(interested)" }
                 }

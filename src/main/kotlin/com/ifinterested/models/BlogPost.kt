@@ -10,5 +10,8 @@ class BlogPost private constructor(
 
         fun create(title: String, body: List<PostElement>, authorID: Int, date: Date = Date()) =
             BlogPost(postID = atomicID.getAndIncrement(), title = title, body = body, authorID = authorID, date = date)
+
+        fun Date.asID() =
+            "${this.year}-${this.month}-${this.day}"
     }
 }
