@@ -5,6 +5,7 @@ import io.ktor.server.html.*
 import kotlinx.html.HTML
 import kotlinx.html.MAIN
 import kotlinx.html.body
+import kotlinx.html.classes
 import kotlinx.html.head
 import kotlinx.html.hr
 import kotlinx.html.lang
@@ -31,7 +32,7 @@ class PageTopLevelTemplate(val posts: List<BlogPost>) : Template<HTML> {
                 content = "Personal blog, written in Kotlin. About coding - mostly about kotlin - for people who love Kotlin as much as me!"
             }
             link {
-                href = "/styles/globals.css"
+                href = "/styles/old.css"
                 rel = "stylesheet"
             }
             title("if(interested) : Kotlin focused development blog.")
@@ -40,6 +41,7 @@ class PageTopLevelTemplate(val posts: List<BlogPost>) : Template<HTML> {
             insert(HeaderTemplate(), headerContent)
             hr {}
             main {
+                classes = setOf("main-wrapper")
                 insert(if (posts.size == 1) SinglePostTemplate(posts) else MultiPostTemplate(posts), pageContent)
             }
             hr {}

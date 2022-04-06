@@ -6,7 +6,7 @@ import io.ktor.server.html.*
 import kotlinx.html.FlowContent
 import kotlinx.html.a
 import kotlinx.html.article
-import kotlinx.html.classes
+import kotlinx.html.code
 import kotlinx.html.h2
 import kotlinx.html.hr
 import kotlinx.html.p
@@ -26,9 +26,11 @@ class MultiPostTemplate(val posts: List<BlogPost>) : Template<FlowContent> {
                         h2(classes = "post-title") {
                             +it.title
                         }
-                        a {
-                            href = "/posts/${it.asURL()}"
-                            +it.asURL()
+                        p {
+                            a {
+                                href = "/posts/${it.asURL()}"
+                                +it.asURL()
+                            }
                         }
                     }
                     section(classes = "post-body") {
@@ -36,11 +38,15 @@ class MultiPostTemplate(val posts: List<BlogPost>) : Template<FlowContent> {
                         it.body.forEach {
                             when (it.type) {
                                 ValidPostElement.CODE -> pre(classes = "post-element post-element--code") {
-                                    title = "code block"
-                                    +it.content }
+                                    code {
+                                        title = "code block"
+                                        +it.content
+                                    }
+                                }
                                 ValidPostElement.PARAGRAPH -> p(classes = "post-element post-element--text") {
                                     title = "text section"
-                                    +it.content }
+                                    +it.content
+                                }
                             }
                         }
                     }

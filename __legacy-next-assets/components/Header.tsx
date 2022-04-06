@@ -26,13 +26,13 @@ const Header: React.FC<HeaderProps> = ({ language }) => {
     return (
         <>
             <header className="header">
-                <h1 className={`main_title main_title__top top left ${ downPage ? ' small' : ' full'}`} >
+                <h1 className={`header_element main_title__top top left ${downPage ? ' small' : ' full'}`} >
                     if (interested){language == 'python' ? ':' : ' {'}
                 </h1>
                 {/* <p className={`main_title__top top right ${downPage ? ' small' : ''}`}>
                 <SearchBar />
                 </p> */}
-                <p className={`main_title main_title__bottom bottom left ${downPage ? ' small' : ' full'}`}>
+                <p className={`header_element main_title__bottom bottom left ${downPage ? ' small' : ' full'}`}>
                     {language == 'python' ? '' : '}'}
                 </p>
             </header>
