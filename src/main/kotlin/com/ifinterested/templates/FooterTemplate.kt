@@ -21,18 +21,17 @@ class FooterTemplate : Template<BODY> {
             classes = setOf("menu", "page-footer", "bottom", "left")
             p {
                 classes = setOf("menu-element")
-                +"}"
+                +"} "
             }
             nav {
                 classes = setOf("menu-element", "footer-links", "start-hidden")
-                h2 {
-
-                    insert(title)
-                }
                 ul {
-
-                    +"Links"
+                    li { a(href = "/posts") { +"Latest Posts" } }
+                    span { +"|" }
+                    li { a(href = "/about") { +"About" } }
+                    span { +"|" }
                     li { a(href = "https://markstanden.dev") { +"Personal Page" } }
+                    span { +"|" }
                     li { a(href = "https://github.com/markstanden") { +"Github" } }
                 }
             }

@@ -21,21 +21,7 @@ class HeaderTemplate : Template<BODY> {
             h1 {
                 classes = setOf("menu-element")
                 insert(title)
-                +"{"
-            }
-            nav {
-                classes = setOf("menu-element", "start-hidden")
-                ul {
-                    li {
-                        +"Latest Posts"
-                    }
-                    li {
-                        +"Github"
-                    }
-                    li {
-                        +"About"
-                    }
-                }
+                +" {"
             }
         }
     }

@@ -3,19 +3,22 @@ menuContainers.forEach(item => item.addEventListener("mouseover", onMouseover(me
 menuContainers.forEach(item => item.addEventListener("mouseout", onMouseout(menuContainers)))
 
 function onMouseover(group) {
-    return (event) => setTimeout(function (event) {
-        group.forEach(element => {
-            element.classList.add("full")
-            element.querySelector(".start-hidden").classList.add("full")
-        })
-    }, 100)
+    return (event) => group.forEach(elementInGroup => {
+        elementInGroup.classList.add("full")
+        setTimeout(function (event) {
+            elementInGroup.querySelectorAll(".start-hidden")
+                .forEach(hiddenChildElement => hiddenChildElement.classList.add("full"))
+        }, 1000)
+    })
 }
 
 function onMouseout(group) {
-    return (event) => setTimeout(function (event) {
-        group.forEach(element => {
-            element.classList.remove("full")
-            element.querySelector(".start-hidden").classList.remove("full")
-        })
-    }, 100)
+    return (event) => group.forEach(elementInGroup => {
+        elementInGroup.querySelectorAll(".start-hidden")
+            .forEach(hiddenChildElement => hiddenChildElement.classList.remove("full"))
+        elementInGroup.classList.remove("full")
+        setTimeout(function (event) {
+            elementInGroup.classList.remove("full")
+        }, 1000)
+    })
 }

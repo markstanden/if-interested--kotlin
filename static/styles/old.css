@@ -3,24 +3,21 @@
 
 :root {
 	--color-background  : rgba(255, 255, 255, 1);
-	--margin-base       : 1rem 0.5rem 1rem 0.5rem;
-	--padding-base      : 1rem 0.5rem 1rem 0.5rem;
+	--color-base        : rgba(0, 0, 0, 1);
+	--margin-base       : 0.3rem;
+	--padding-base      : 0.3rem;
 	--color-border      : var(--color-primary);
-	--nav-border        : var(--border-size);
 	--font-code         : "Fira Code";
 	font-family         : "Montserrat", Roboto, Oxygen, Ubuntu, Cantarell, -apple-system, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", sans-serif;
-	--nav-font-size     : 2rem;
-	--padding-header    : 1.2rem 0.5rem 1.2rem 0.5rem;
-	--nav-height        : min-content;
-	--color-primary     : rgba(0, 129, 72, 1); /* sea-gr|een */
+	--nav-font-size     : 0.8rem;
+	--padding-header    : 0.2rem 0.4rem 0.2rem 0.4rem;
+	--color-primary     : rgba(0, 129, 72, 1); /* sea-green */
 	--font-primary      : "Montserrat";
 	--color-secondary   : #58355E; /* english violet */
 	--font-secondary    : "Fira Sans";
 	--color-shadow      : rgba(0, 0, 0, 0.5);
-	--menu-shrink-ratio : 0.5;
-	--border-size       : 3px;
-	--header-size       : 2rem;
-	--color-text        : rgba(0, 0, 0, 1);
+	--border-size       : 2px;
+	--header-size       : 1.3rem;
 }
 
 
@@ -40,10 +37,10 @@
 	:root {
 		--margin-base    : 2rem 1rem 2rem 1rem;
 		--padding-base   : 1.2rem 1rem 1.2rem 1rem;
-		--nav-font-size  : 1.6rem;
-		--padding-header : 1.2rem 1rem 1.2rem 1rem;
+		--nav-font-size  : 1.5rem;
+		--padding-header : 0.75rem;
 		--border-size    : 4px;
-		--header-size    : calc(var(--header-size) * 1.5);
+		--header-size    : 2.5rem;
 		--content-width  : 50rem;
 	}
 }
@@ -52,14 +49,24 @@
 * {
 	border-color : var(--color-border);
 	box-sizing   : border-box;
+	color        : var(--color-base);
 	margin       : 0;
 	padding      : 0;
 }
 
 
 a {
+	border-bottom   : 1px solid var(--color-secondary);
 	color           : inherit;
 	text-decoration : none;
+	transition      : border-bottom-color 0.3s;
+}
+
+
+a:hover {
+	border-bottom : 2px solid var(--color-primary);
+	cursor        : pointer;
+	transition    : border-bottom-color 0.3s;
 }
 
 
@@ -72,75 +79,50 @@ ul {
 	background-color : var(--color-background);
 	border-radius    : 1.3rem;
 	border-style     : solid;
-	box-shadow       : 0.5px 0.5px 20px var(--color-shadow);
-
+	box-shadow       : 1px 1px 20px var(--color-shadow);
 	margin           : var(--margin-base);
+	margin-top       : var(--header-size);
 	padding          : var(--padding-base);
 }
 
 
 .menu {
+	align-items      : center;
 	background-color : var(--color-background);
 	box-shadow       : 1px 1px 12px var(--color-shadow);
 	color            : var(--color-primary);
 	display          : flex;
 	flex-direction   : row;
 	font-family      : var(--font-primary);
-	font-size        : calc(var(--header-size) * var(--menu-shrink-ratio));
-	height           : calc(var(--header-size) * var(--menu-shrink-ratio));
+	font-size        : var(--header-size);
+	font-weight      : 400;
+	height           : auto;
 	justify-content  : space-between;
-	margin-bottom    : 2rem;
 	padding          : 0.4rem 0.6rem 0.4rem 0.4rem;
 	position         : fixed;
+	transition       : font-size 1s;
 	width            : min-content;
-}
-
-
-.menu.full {
-	animation-duration : 10s;
-	animation-name     : expand;
-	font-size          : var(--header-size);
-	height             : var(--header-size);
-	width              : 100%;
-}
-
-
-.start-hidden {
-	overflow : hidden;
-	position : relative;
-	right    : 0;
-	width    : 0;
-}
-
-
-.start-hidden.full {
-	overflow : visible;
-}
-
-
-@keyframes expand {
-	from {
-		width    : 25%;
-		overflow : hidden;
-	}
-
-	to {
-		overflow : visible;
-		width    : 100%;
-	}
 }
 
 
 .menu-element {
 	font-size   : inherit;
+	font-weight : inherit;
 	padding     : var(--padding-header);
 	white-space : nowrap;
 }
 
 
 .menu > nav > ul {
-	display        : flex;
-	flex-direction : row;
+	display         : flex;
+	flex-direction  : row;
+	font-size       : var(--nav-font-size);
+	justify-content : space-around;
+}
+
+
+li {
+	margin : 0 0.7rem;
 }
 
 
