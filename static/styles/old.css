@@ -94,12 +94,9 @@ ul {
 	position         : fixed;
 	width            : min-content;
 }
-.mask {
-	position: absolute;
-	width: 25%;
-}
 
-.mask.full {
+
+.menu.full {
 	animation-duration : 10s;
 	animation-name     : expand;
 	font-size          : var(--header-size);
@@ -109,11 +106,12 @@ ul {
 
 
 .start-hidden {
-	position: relative;
-	right: 0;
-	width: 0;
 	overflow : hidden;
+	position : relative;
+	right    : 0;
+	width    : 0;
 }
+
 
 .start-hidden.full {
 	overflow : visible;

@@ -18,9 +18,6 @@ class HeaderTemplate : Template<BODY> {
     override fun BODY.apply() {
         header {
             classes = setOf("menu", "page-header", "top", "left")
-            div {
-                classes = setOf("mask", "top", "left")
-            }
             h1 {
                 classes = setOf("menu-element")
                 insert(title)

@@ -1,16 +1,21 @@
-var menuContainers = document.querySelectorAll(".menu")
-console.log(menuContainers)
+const menuContainers = document.querySelectorAll(".menu")
+menuContainers.forEach(item => item.addEventListener("mouseover", onMouseover(menuContainers)))
+menuContainers.forEach(item => item.addEventListener("mouseout", onMouseout(menuContainers)))
 
-menuContainers.forEach(item => item.addEventListener("mouseover", (event) => setTimeout(function (event) {
-    menuContainers.forEach(item => {
-        item.classList.add("full")
-        item.querySelector(".mask").classList.add("full")
-    })
-}, 10)))
+function onMouseover(group) {
+    return (event) => setTimeout(function (event) {
+        group.forEach(element => {
+            element.classList.add("full")
+            element.querySelector(".start-hidden").classList.add("full")
+        })
+    }, 100)
+}
 
-menuContainers.forEach(item => item.addEventListener("mouseout", (event) => setTimeout(function (event) {
-    menuContainers.forEach(item => {
-        item.classList.remove("full")
-        item.querySelector(".mask").classList.remove("full")
-    })
-}, 10)))
+function onMouseout(group) {
+    return (event) => setTimeout(function (event) {
+        group.forEach(element => {
+            element.classList.remove("full")
+            element.querySelector(".start-hidden").classList.remove("full")
+        })
+    }, 100)
+}
