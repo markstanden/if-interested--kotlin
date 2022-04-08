@@ -6,12 +6,14 @@ import kotlinx.html.HTML
 import kotlinx.html.MAIN
 import kotlinx.html.body
 import kotlinx.html.classes
+import kotlinx.html.dom.document
 import kotlinx.html.head
 import kotlinx.html.hr
 import kotlinx.html.lang
 import kotlinx.html.link
 import kotlinx.html.main
 import kotlinx.html.meta
+import kotlinx.html.script
 import kotlinx.html.title
 
 class PageTopLevelTemplate(val posts: List<BlogPost>) : Template<HTML> {
@@ -29,11 +31,16 @@ class PageTopLevelTemplate(val posts: List<BlogPost>) : Template<HTML> {
             }
             meta {
                 name = "description"
-                content = "Personal blog, written in Kotlin. About coding - mostly about kotlin - for people who love Kotlin as much as me!"
+                content =
+                    "Personal blog, written in Kotlin. About coding - mostly about kotlin - for people who love Kotlin as much as me!"
             }
             link {
                 href = "/styles/old.css"
                 rel = "stylesheet"
+            }
+            script {
+                src = "/scripts/scripts.js"
+                defer = true
             }
             title("if(interested) : Kotlin focused development blog.")
         }
@@ -46,6 +53,7 @@ class PageTopLevelTemplate(val posts: List<BlogPost>) : Template<HTML> {
             }
             hr {}
             insert(FooterTemplate(), footerContent)
+
         }
     }
 }

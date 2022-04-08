@@ -14,5 +14,8 @@ fun Application.staticFiles() {
         static("styles") {
             files("styles")
         }
+        static("scripts") {
+            files("scripts")
+        }
     }
 }
