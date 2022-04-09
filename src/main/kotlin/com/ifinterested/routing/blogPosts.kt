@@ -7,6 +7,7 @@ import io.ktor.server.application.*
 import io.ktor.server.html.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
+import kotlinx.html.span
 
 fun Application.posts(posts: List<BlogPost>) {
     routing {
@@ -16,7 +17,12 @@ fun Application.posts(posts: List<BlogPost>) {
         get("posts") {
             call.respondHtmlTemplate(PageTopLevelTemplate(posts)) {
                 headerContent {
-                    title { +"if(interested)" }
+                    title {
+                        span(classes="code--operator") { +"if" }
+                        span(classes="code--perens") { +"(" }
+                        span(classes="code--variable") { +"interested" }
+                        span(classes="code--perens") { +")" }
+                    }
                 }
                 footerContent {
                     title { +"if(interested)" }

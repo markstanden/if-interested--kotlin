@@ -34,24 +34,37 @@ class PageTopLevelTemplate(val posts: List<BlogPost>) : Template<HTML> {
                 content =
                     "Personal blog, written in Kotlin. About coding - mostly about kotlin - for people who love Kotlin as much as me!"
             }
+
             link {
-                href = "/styles/old.css"
+                rel = "icon"
+                type = "image/svg+xml"
+                href = "/icons/if(interested).svg"
+            }
+
+            link {
+                rel = "icon"
+                type = "image/png"
+                href = "/icons/if(interested).png"
+            }
+
+            link {
+                href = "/styles/main.css"
                 rel = "stylesheet"
             }
+
             script {
                 src = "/scripts/scripts.js"
                 defer = true
             }
             title("if(interested) : Kotlin focused development blog.")
         }
+
         body {
             insert(HeaderTemplate(), headerContent)
-            hr {}
             main {
                 classes = setOf("main-wrapper")
                 insert(if (posts.size == 1) SinglePostTemplate(posts) else MultiPostTemplate(posts), pageContent)
             }
-            hr {}
             insert(FooterTemplate(), footerContent)
 
         }

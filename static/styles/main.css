@@ -1,23 +1,23 @@
-@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300&family=Montserrat:wght@200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300&family=Montserrat:wght@200&family=Montserrat:wght@300&family=Montserrat:wght@400&display=swap");
 
 
 :root {
-	--color-background  : rgba(255, 255, 255, 1);
-	--color-base        : rgba(0, 0, 0, 1);
-	--margin-base       : 0.3rem;
-	--padding-base      : 0.3rem;
-	--color-border      : var(--color-primary);
-	--font-code         : "Fira Code";
-	font-family         : "Montserrat", Roboto, Oxygen, Ubuntu, Cantarell, -apple-system, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", sans-serif;
-	--nav-font-size     : 0.8rem;
-	--padding-header    : 0.2rem 0.4rem 0.2rem 0.4rem;
-	--color-primary     : rgba(0, 129, 72, 1); /* sea-green */
-	--font-primary      : "Montserrat";
-	--color-secondary   : #58355E; /* english violet */
-	--font-secondary    : "Fira Sans";
-	--color-shadow      : rgba(0, 0, 0, 0.5);
-	--border-size       : 2px;
-	--header-size       : 1.3rem;
+	--color-background : rgba(255, 255, 255, 1);
+	--color-base       : rgba(0, 0, 0, 1);
+	--margin-base      : 0.3rem;
+	--padding-base     : 0.3rem;
+	--color-border     : var(--color-primary);
+	--font-code        : "Fira Code";
+	font-family        : "Montserrat", Roboto, Oxygen, Ubuntu, Cantarell, -apple-system, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", sans-serif;
+	--nav-font-size    : 0.8rem;
+	--padding-header   : 0.2rem 0.4rem 0.2rem 0.4rem;
+	--color-primary    : rgba(0, 129, 72, 1); /* sea-green */
+	--font-primary     : "Montserrat";
+	--color-secondary  : rgba(88, 53, 94, 1); /* english violet */
+	--font-secondary   : "Fira Sans";
+	--color-shadow     : rgba(0, 0, 0, 0.5);
+	--border-size      : 2px;
+	--header-size      : 1.3rem;
 }
 
 
@@ -35,10 +35,10 @@
 
 @media only screen and (min-width : 900px) {
 	:root {
-		--margin-base    : 2rem 1rem 2rem 1rem;
+		--margin-base    : 1rem 1rem 1rem 1rem;
 		--padding-base   : 1.2rem 1rem 1.2rem 1rem;
-		--nav-font-size  : 1.5rem;
-		--padding-header : 0.75rem;
+		--nav-font-size  : 1rem;
+		--padding-header : 0.5rem;
 		--border-size    : 4px;
 		--header-size    : 2.5rem;
 		--content-width  : 50rem;
@@ -81,7 +81,7 @@ ul {
 	border-style     : solid;
 	box-shadow       : 1px 1px 20px var(--color-shadow);
 	margin           : var(--margin-base);
-	margin-top       : var(--header-size);
+	margin-top       : calc(var(--header-size) * 3);
 	padding          : var(--padding-base);
 }
 
@@ -95,10 +95,10 @@ ul {
 	flex-direction   : row;
 	font-family      : var(--font-primary);
 	font-size        : var(--header-size);
-	font-weight      : 400;
+	font-weight      : 50;
 	height           : auto;
 	justify-content  : space-between;
-	padding          : 0.4rem 0.6rem 0.4rem 0.4rem;
+	padding          : var(--padding-header);
 	position         : fixed;
 	transition       : font-size 1s;
 	width            : min-content;
@@ -214,4 +214,31 @@ li {
 .author_name {
 	font-size   : 1rem;
 	margin-left : 1rem;
+}
+
+
+.code--operator {
+	color : inherit;
+}
+
+
+.code--perens {
+	color : inherit;
+}
+
+
+.code--string {
+	color       : var(--color-primary);
+	font-weight : 300;
+}
+
+
+.code--variable {
+	color : var(--color-secondary);
+	font-weight : 400;
+}
+
+
+.post-wrapper {
+	margin : var(--margin-base);
 }

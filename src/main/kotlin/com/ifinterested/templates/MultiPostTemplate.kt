@@ -6,6 +6,7 @@ import io.ktor.server.html.*
 import kotlinx.html.FlowContent
 import kotlinx.html.a
 import kotlinx.html.article
+import kotlinx.html.classes
 import kotlinx.html.code
 import kotlinx.html.h2
 import kotlinx.html.hr
@@ -21,38 +22,25 @@ class MultiPostTemplate(val posts: List<BlogPost>) : Template<FlowContent> {
             posts.forEach() {
                 article {
                     title = "${it.title}"
-                    section("title-section") {
-                        title = "post title"
-                        h2(classes = "post-title") {
-                            +it.title
-                        }
-                        p {
-                            a {
-                                href = "/posts/${it.asURL()}"
-                                +it.asURL()
+                    a {
+                        href = "/posts/${it.asURL()}"
+                        +it.asURL()
+                        section("title-section") {
+                            title = "post title"
+                            h2(classes = "post-title") {
+                                +it.title
                             }
                         }
-                    }
-                    section(classes = "post-body") {
-                        title = "post content"
-                        it.body.forEach {
-                            when (it.type) {
-                                ValidPostElement.CODE -> pre(classes = "post-element post-element--code") {
-                                    code {
-                                        title = "code block"
-                                        +it.content
-                                    }
-                                }
-                                ValidPostElement.PARAGRAPH -> p(classes = "post-element post-element--text") {
-                                    title = "text section"
-                                    +it.content
-                                }
+                        section("summary-section") {
+                            title = "post summary"
+                            p(classes = "post-element post-element--text") {
+                                title = "summary block"
+                                +(it.body.firstOrNull() { section -> section.type == ValidPostElement.SUMMARY }?.content ?: it.body.firstOrNull()?.content ?: "")
                             }
                         }
-                    }
 
+                    }
                 }
-                hr { }
             }
         }
     }
