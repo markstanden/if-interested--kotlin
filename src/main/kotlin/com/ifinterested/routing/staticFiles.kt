@@ -8,7 +8,7 @@ import java.io.File
 fun Application.staticFiles() {
     routing {
         staticRootFolder = File("static")
-        listOf("authors", "icons", "scripts", "styles").forEach {
+        listOf("authors", "icons", "images", "scripts", "styles").forEach {
             static(it) {
                 files(it)
             }

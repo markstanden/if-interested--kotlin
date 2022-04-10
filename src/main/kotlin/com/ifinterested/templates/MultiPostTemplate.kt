@@ -17,29 +17,29 @@ import kotlinx.html.title
 
 class MultiPostTemplate(val posts: List<BlogPost>) : Template<FlowContent> {
     override fun FlowContent.apply() {
-        section {
-            title = "blogposts"
-            posts.forEach() {
+        posts.forEach() {
+            a {
+                href = "/posts/${it.asURL()}"
                 article {
-                    title = "${it.title}"
-                    a {
-                        href = "/posts/${it.asURL()}"
-                        +it.asURL()
-                        section("title-section") {
-                            title = "post title"
-                            h2(classes = "post-title") {
-                                +it.title
-                            }
-                        }
-                        section("summary-section") {
-                            title = "post summary"
-                            p(classes = "post-element post-element--text") {
-                                title = "summary block"
-                                +(it.body.firstOrNull() { section -> section.type == ValidPostElement.SUMMARY }?.content ?: it.body.firstOrNull()?.content ?: "")
-                            }
-                        }
+                    classes = setOf("post-card")
+                    title = it.title
 
+                    section("title-section") {
+                        title = "post title"
+                        h2(classes = "post-title") {
+                            +it.title
+                        }
                     }
+                    section("summary-section") {
+                        title = "post summary"
+                        p(classes = "post-element post-element--text") {
+                            title = "summary block"
+                            +(it.body.firstOrNull() { section ->
+                                section.type == ValidPostElement.SUMMARY
+                            }?.content ?: it.body.firstOrNull()?.content ?: "")
+                        }
+                    }
+
                 }
             }
         }
