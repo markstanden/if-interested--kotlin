@@ -4,8 +4,8 @@
 :root {
 	--color-background : rgba(255, 255, 255, 1);
 	--color-base       : rgba(0, 0, 0, 1);
-	--margin-base      : 0.3rem;
-	--padding-base     : 0.3rem;
+	--margin-base      : 1rem 0.1rem;
+	--padding-base     : 0.1rem;
 	--color-border     : var(--color-primary);
 	--font-code        : "Fira Code";
 	font-family        : "Montserrat", Roboto, Oxygen, Ubuntu, Cantarell, -apple-system, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", sans-serif;
@@ -16,34 +16,43 @@
 	--color-secondary  : rgba(88, 53, 94, 1); /* english violet */
 	--font-secondary   : "Fira Sans";
 	--color-shadow     : rgba(0, 0, 0, 0.5);
-	--border-size      : 2px;
-	--header-size      : 1.3rem;
-	--content-width    : 50rem;
+	--border-size      : 1px;
+	--header-size      : 0.8rem;
+	--content-width    : 95%;
 }
 
 
-/* tiny */
-@media only screen and (max-width : 400px) {
+@media only screen and (min-width : 650px) {
 	:root {
-		--margin-base    : 1rem 0.1rem;
-		--padding-base   : 0.1rem;
-		--padding-header : 0.6rem;
-		--border-size    : 1px;
-		--header-size    : 1rem;
-		--content-width  : 100vw;
+		--margin-base   : 1rem 0.2rem;
+		--padding-base  : 0.3rem;
+		--border-size   : 2px;
+		--header-size   : 1rem;
+		--content-width : 40rem;
 	}
 }
 
 
-@media only screen and (min-width : 900px) {
+@media only screen and (min-width : 750px) {
+	:root {
+		--margin-base   : 1rem 0.3rem;
+		--padding-base  : 0.3rem;
+		--border-size   : 2px;
+		--header-size   : 1.3rem;
+		--content-width : 45rem;
+	}
+}
+
+
+@media only screen and (min-width : 1000px) {
 	:root {
 		--margin-base    : 1rem;
 		--padding-base   : 1.2rem;
 		--nav-font-size  : 1rem;
 		--padding-header : 1rem;
 		--border-size    : 4px;
-		--header-size    : 2.5rem;
-		--content-width  : 100rem;
+		--header-size    : 1.5rem;
+		--content-width  : 50rem;
 	}
 }
 
@@ -52,8 +61,6 @@
 	border         : 0;
 	border-color   : var(--color-border);
 	box-sizing     : border-box;
-	color          : var(--color-base);
-	font           : inherit;
 	font-size      : 100%;
 	margin         : 0;
 	padding        : 0;
@@ -73,11 +80,11 @@ ul {
 
 
 .main-wrapper {
-	display         : flex;
-	flex-direction  : row;
-	flex-wrap       : wrap;
-	justify-content : center;
-	margin          : calc(var(--header-size) + (var(--padding-header) * 2) + (var(--border-size) * 2) + var(--padding-base)) 10vw;
+	align-items    : center;
+	display        : flex;
+	flex-direction : column;
+	margin         : calc(var(--header-size) + (var(--padding-header) * 2) + (var(--border-size) * 2) + var(--padding-base)) auto;
+	width          : var(--content-width);
 }
 
 
@@ -185,26 +192,6 @@ li {
 }
 
 
-.post-element {
-	flex-grow : 5;
-	margin: var(--margin-base);
-}
-.post-element__subtitle {
-	width: fit-content;
-	font-size: 150%;
-	border-bottom: 1px solid var(--color-secondary);
-}
-.post-element__text {
-	flex-grow : 2;
-}
-.post-element__code {
-	flex-grow : 2;
-}
-.post-element__image {
-	flex-grow : 2;
-}
-
-
 .author {
 	align-self                : flex-end;
 	border-bottom-left-radius : 2rem;
@@ -217,10 +204,8 @@ li {
 
 
 .post-wrapper {
-	max-width  : 720px;
 	min-height : 70vh;
-	min-width  : min-content;
-	width      : var(--content-width);
+	width      : 100%;
 }
 
 
@@ -285,4 +270,42 @@ li {
 	margin           : 1.5rem;
 	padding          : var(--padding-base);
 	width            : 22rem;
+}
+
+
+.post-element {
+	margin : var(--margin-base);
+	width  : fit-content;
+}
+
+
+.post-element__subtitle {
+	border-bottom : 1px solid var(--color-secondary);
+	font-size     : 150%;
+	width         : fit-content;
+}
+
+
+.post-element__text {
+}
+
+
+.post-element___code {
+	/*background    : black;*/
+	border        : 1px solid var(--color-primary);
+	border-radius : 0.5rem;
+	/*color         : white;*/
+	font-family   : var(--font-secondary);
+	overflow      : hidden;
+	padding       : var(--padding-base);
+
+}
+
+
+.post-element__code > code {
+	overflow : scroll;
+}
+
+
+.post-element__image {
 }

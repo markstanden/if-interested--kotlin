@@ -56,6 +56,16 @@ class PageTopLevelTemplate(val posts: List<BlogPost>) : Template<HTML> {
                 src = "/scripts/scripts.js"
                 defer = true
             }
+
+            link {
+                rel = "stylesheet"
+                href = "/styles/syntax.css"
+            }
+            script {
+                src = "/scripts/syntax.js"
+                defer = true
+            }
+
             title("if(interested) : Kotlin focused development blog.")
         }
 

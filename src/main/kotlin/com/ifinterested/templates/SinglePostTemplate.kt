@@ -33,6 +33,7 @@ class SinglePostTemplate(val posts: List<BlogPost>) : Template<FlowContent> {
                             ValidPostElement.CODE -> pre {
                                 classes = setOf("post-element", "post-element__code")
                                 code {
+                                    classes = setOf("language-kotlin")
                                     title = "code block"
                                     +it.content
                                 }
