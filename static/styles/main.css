@@ -188,7 +188,7 @@ li {
 .post-body {
 	display        : flex;
 	flex-direction : column;
-	flex-wrap      : wrap;
+	justify-content: space-between;
 }
 
 
@@ -274,8 +274,9 @@ li {
 
 
 .post-element {
-	margin : var(--margin-base);
-	width  : fit-content;
+	border     : 2px solid;
+	margin-top : 1rem;
+	width      : fit-content;
 }
 
 
@@ -290,13 +291,13 @@ li {
 }
 
 
-.post-element___code {
+.post-element__code {
 	/*background    : black;*/
-	border        : 1px solid var(--color-primary);
+	border        : 2px solid var(--color-primary);
 	border-radius : 0.5rem;
 	/*color         : white;*/
 	font-family   : var(--font-secondary);
-	overflow      : hidden;
+	margin        : var(--margin-base);
 	padding       : var(--padding-base);
 
 }
